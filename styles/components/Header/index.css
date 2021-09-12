@@ -13,11 +13,16 @@
   border-radius: 50%;
 
   transition: all 0.3s linear;
+
   overflow: hidden;
+
+  z-index: 50;
+
+  position: absolute;
 }
 
 /* Navigation links in header.*/
-nav {
+.header nav {
   visibility: hidden;
 
   height: 100%;
@@ -30,26 +35,26 @@ nav {
 
   padding: 20px 30px;
 }
-nav #links {
+.header nav #links {
   font-size: 48px;
   display: grid;
   gap: 5px;
 }
-nav #login,
-nav #support {
+.header nav #login,
+.header nav #support {
   font-size: 28px;
   display: grid;
   gap: 10px;
 }
 
-nav span {
+.header nav span {
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 48px;
   color: var(--theme-dk-text);
-  z-index: 20;
+  z-index: 60;
 }
-nav span:hover {
+.header nav span:hover {
   cursor: pointer;
 }

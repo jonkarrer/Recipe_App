@@ -12,6 +12,7 @@ This is a minimalistic recipe app that I would like to use in my daily life.
 .header {
   --width: 65px;
   --height: 65px;
+
   width: var(--width);
   height: var(--height);
 }

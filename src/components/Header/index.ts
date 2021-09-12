@@ -6,7 +6,7 @@ export class Header {
     this.header = document.querySelector(".header");
     this.header?.addEventListener("click", () => this.openHeader());
 
-    this.closeHeaderButton = document.querySelector("nav span");
+    this.closeHeaderButton = document.querySelector(".header nav span");
     this.closeHeaderButton?.addEventListener("click", (e) =>
       this.closeHeader(e)
     );

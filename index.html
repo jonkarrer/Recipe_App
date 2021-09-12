@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/Home/index.css" />
     <title>Recipe App</title>
   </head>
   <body>
@@ -27,7 +28,26 @@
         </div>
       </nav>
     </header>
-    <main></main>
+
+    <main>
+      <div class="container">
+        <img src="./assets/flame.svg" alt="flame icon" />
+        <button class="new_recipe_button" onclick="moveContentsOffPage()">
+          New Recipe
+        </button>
+      </div>
+    </main>
+
     <script type="module" src="./build/main.js"></script>
+
+    <script>
+      function moveContentsOffPage() {
+        const header = document.querySelector(".header");
+        const container = document.querySelector(".container");
+
+        header.style.transform = "translateY(-100vh)";
+        container.style.transform = "translateY(-100vh)";
+      }
+    </script>
   </body>
 </html>

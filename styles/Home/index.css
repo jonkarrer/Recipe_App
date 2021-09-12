@@ -1,0 +1,31 @@
+.container {
+  display: grid;
+  place-content: center;
+  gap: 60px;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  transition: all 1s ease;
+}
+img {
+  width: 200px;
+}
+button {
+  width: 195px;
+  height: 60px;
+
+  background: var(--theme-grey);
+
+  color: var(--theme-dk-text);
+
+  border: none;
+  border-radius: 2rem;
+
+  font-size: 1.7rem;
+  font-weight: 600;
+}
