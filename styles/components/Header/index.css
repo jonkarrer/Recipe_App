@@ -1,0 +1,55 @@
+.header {
+  /* 01. Used to reset styles after transition is closed via Header/index.js */
+  --width: 65px;
+  --height: 65px;
+  width: var(--width);
+  height: var(--height);
+  /**************************************************/
+
+  background: #c4c4c4;
+
+  margin: 20px 30px;
+
+  border-radius: 50%;
+
+  transition: all 0.3s linear;
+  overflow: hidden;
+}
+
+/* Navigation links in header.*/
+nav {
+  visibility: hidden;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  font-weight: 600;
+
+  padding: 20px 30px;
+}
+nav #links {
+  font-size: 48px;
+  display: grid;
+  gap: 5px;
+}
+nav #login,
+nav #support {
+  font-size: 28px;
+  display: grid;
+  gap: 10px;
+}
+
+nav span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 48px;
+  color: var(--theme-dk-text);
+  z-index: 20;
+}
+nav span:hover {
+  cursor: pointer;
+}
