@@ -1,0 +1,26 @@
+.gradient-text {
+  text-align: center;
+
+  background: linear-gradient(
+    to right,
+    rgb(144, 137, 137) 20%,
+    var(--theme-dk-text) 40%,
+    var(--theme-dk-text) 60%,
+    rgb(144, 137, 137) 80%
+  );
+  background-size: 200% auto;
+
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 1.5s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}

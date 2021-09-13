@@ -38,7 +38,7 @@ export class Header {
 
   showNavigation() {
     const navigation = <HTMLElement>document.querySelector(".header nav");
-    setTimeout(() => (navigation.style.visibility = "visible"), 300);
+    setTimeout(() => (navigation.style.visibility = "visible"), 200);
   }
 
   hideNavigation() {

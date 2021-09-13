@@ -1,0 +1,30 @@
+/*Catagory Section Container */
+
+.catagory {
+  overflow: hidden;
+}
+.bubbles-container {
+  overflow-x: scroll;
+}
+
+.overflow-wrapper {
+  min-width: max-content;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.overflow-wrapper div {
+  background: var(--theme-grey);
+  font-size: 1rem;
+  border-radius: 2rem;
+  color: black;
+  width: 120px;
+  height: 40px;
+
+  display: grid;
+  place-content: center;
+
+  font-weight: 500;
+}

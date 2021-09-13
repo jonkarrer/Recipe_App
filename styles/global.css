@@ -1,4 +1,5 @@
 @import url("./components/Header/index.css");
+@import url("./components/Fonts/gradient-text.css");
 
 * {
   margin: 0;
@@ -13,8 +14,8 @@ html {
 }
 
 a {
-  color: var(--theme-blue);
   text-decoration: none;
+  color: inherit;
 }
 a:hover {
   cursor: pointer;

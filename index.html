@@ -15,7 +15,7 @@
         <div id="links">
           <a href="/myrecipes">My Recipes</a>
           <a href="/drafts">Drafts</a>
-          <a href="/newrecipe">New Recipe</a>
+          <a href="/new_recipe.html">New Recipe</a>
           <a href="/templates">Templates</a>
         </div>
         <div id="login">
@@ -32,22 +32,12 @@
     <main>
       <div class="container">
         <img src="./assets/flame.svg" alt="flame icon" />
-        <button class="new_recipe_button" onclick="moveContentsOffPage()">
-          New Recipe
+        <button onclick="">
+          <a href="/new_recipe.html" class="gradient-text">New Recipe</a>
         </button>
       </div>
     </main>
 
     <script type="module" src="./build/main.js"></script>
-
-    <script>
-      function moveContentsOffPage() {
-        const header = document.querySelector(".header");
-        const container = document.querySelector(".container");
-
-        header.style.transform = "translateY(-100vh)";
-        container.style.transform = "translateY(-100vh)";
-      }
-    </script>
   </body>
 </html>

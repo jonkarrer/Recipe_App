@@ -12,13 +12,17 @@
 
   border-radius: 50%;
 
-  transition: all 0.3s linear;
+  transition: all 0.1s linear;
 
   overflow: hidden;
 
   z-index: 50;
 
   position: absolute;
+
+  color: var(--theme-dk-text);
+
+  box-shadow: 1px 1px 10px #333;
 }
 
 /* Navigation links in header.*/

@@ -1,0 +1,53 @@
+@import url("./catagory.css");
+
+:root {
+  --border-color: var(--theme-grey);
+}
+
+/*Index*/
+main {
+  display: grid;
+
+  overflow: hidden;
+
+  gap: 30px;
+  margin: 60px 5px;
+}
+input {
+  width: 100%;
+  color: var(--theme-dk-text);
+  border: none;
+  caret-color: red;
+}
+input:focus {
+  --border-color: var(--theme-blue);
+  outline: none;
+  border-bottom: solid 3px var(--border-color);
+}
+#recipe_name {
+  font-size: 3rem;
+  border-bottom: solid 3px var(--border-color);
+  text-align: center;
+}
+
+/*Groups*/
+
+.add-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: auto;
+
+  color: var(--theme-lt-text);
+}
+.add-info:hover {
+  cursor: pointer;
+}
+.add-info h6 {
+  font-size: 1.8rem;
+}
+.add-info span {
+  font-size: 2rem;
+}

@@ -10,22 +10,40 @@
   right: 0;
   margin: auto;
 
+  height: max-content;
+  width: 100%;
+
   transition: all 1s ease;
 }
 img {
   width: 200px;
 }
 button {
-  width: 195px;
+  width: 200px;
   height: 60px;
-
-  background: var(--theme-grey);
-
-  color: var(--theme-dk-text);
 
   border: none;
   border-radius: 2rem;
 
+  background: var(--theme-grey);
+
   font-size: 1.7rem;
   font-weight: 600;
+  box-shadow: 1px 1px 5px #333;
+
+  border: rgba(0, 0, 0, 0.1) solid 0.5px;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+button:active {
+  -webkit-box-shadow: inset 1px 1px 10px #333;
+  -moz-box-shadow: inset 1px 1px 10px #333;
+  box-shadow: inset 1px 1px 10px #333;
+  transform: scale(0.95);
 }
