@@ -23,6 +23,7 @@
       </section>
 
       <section class="catagory">
+        <!-- This section captures the user click and activates the script -->
         <div class="add-info">
           <h6>Catagory</h6>
           <span id="toggle-switch-catagory">+</span>
@@ -50,64 +51,7 @@
         </span>
       </section>
     </main>
-    <script>
-      let toggle = false;
-
-      const catagoryName = document.querySelector(".catagory h6");
-      const toggleSwitch = document.getElementById("toggle-switch-catagory");
-
-      catagoryName.addEventListener("click", (e) => openCatagoryMenu(e));
-
-      toggleSwitch.addEventListener("click", (e) => openCatagoryMenu(e), true);
-
-      function openCatagoryMenu(e) {
-        e.stopPropagation();
-
-        toggle = !toggle;
-
-        if (toggle) {
-          toggleSwitch.innerText = "-";
-          appendCatagories();
-          return;
-        } else {
-          teardownCatagories();
-          toggleSwitch.innerText = "+";
-        }
-
-        function teardownCatagories() {
-          let teardownTarget = document.querySelector(".bubbles-container");
-          teardownTarget.remove();
-        }
-
-        function createContainer() {
-          const parent = document.createElement("div");
-          parent.className = "bubbles-container";
-
-          const child = document.createElement("div");
-          child.className = "overflow-wrapper";
-
-          parent.append(child);
-          const catagory = document.querySelector(".catagory");
-          catagory.append(parent);
-        }
-
-        function createBubbles() {
-          const wrapper = document.querySelector(".overflow-wrapper");
-
-          for (i = 0; i < 6; i++) {
-            const bubble = document.createElement("div");
-            bubble.innerText = `Bubble ${i}`;
-            wrapper.append(bubble);
-          }
-        }
-
-        function appendCatagories() {
-          createContainer();
-          createBubbles();
-          return;
-        }
-      }
-    </script>
+    <script type="module" src="./build/components/New_Recipe/index.js"></script>
   </body>
 </html>
 
