@@ -1,40 +1,9 @@
-export class Catagory {
-  catagory: Element | null;
-  isOpen: boolean;
-  title: HTMLElement | null;
-  toggleSwitch: HTMLElement | null;
+import Template from "./Template.js";
 
-  constructor() {
-    this.catagory = document.querySelector("section .catagory");
-
-    this.isOpen = false;
-
-    this.title = document.querySelector(".catagory h6");
-    this.toggleSwitch = document.getElementById("toggle-switch-catagory");
-
-    this.title?.addEventListener("click", (e) => this.clickHandler(e));
-
-    this.toggleSwitch?.addEventListener(
-      "click",
-      (e) => this.clickHandler(e),
-      true
-    );
-  }
-
-  clickHandler(e: Event) {
-    e.stopPropagation();
-
-    this.isOpen = !this.isOpen;
-
-    if (this.isOpen) {
-      return this.activateCatagory();
-    } else {
-      return this.teardownCatagories();
-    }
-  }
-
-  activateCatagory() {
+class Catagory extends Template {
+  buildTemplate() {
     if (this.toggleSwitch != null) this.toggleSwitch.innerText = "-";
+    if (this.title != null) this.title.style.color = "var(--theme-dk-text)";
 
     this.createContainer();
     this.createBubbles();
@@ -42,7 +11,7 @@ export class Catagory {
   }
 
   createContainer() {
-    const root: Element | null = document.querySelector(".catagory");
+    const root = this.sectionElement;
     const parent: HTMLDivElement = document.createElement("div");
     const child: HTMLDivElement = document.createElement("div");
 
@@ -57,9 +26,11 @@ export class Catagory {
 
     /*
       <section class="catagory">
+
         <div class="bubbles-container">
           <div class="overflow-wrapper"></div>
         </div>
+
       </section>
     */
   }
@@ -67,32 +38,42 @@ export class Catagory {
   createBubbles() {
     const wrapper: HTMLElement | null =
       document.querySelector(".overflow-wrapper");
+
     let i = 0;
     for (i; i < 6; i++) {
-      const bubble = document.createElement("div");
+      const bubble: HTMLDivElement = document.createElement("div");
       bubble.innerText = `Bubble ${i}`;
+      bubble.setAttribute("data-catagory-name", `${i}`);
+
+      /// This will capture the information to store in the backend
+
+      bubble.addEventListener("click", function (this) {
+        bubble.style.background = "var(--theme-blue)";
+        bubble.style.color = "var(--theme-lt-text)";
+        console.log(this.getAttribute("data-catagory-name"));
+      });
+
       wrapper?.append(bubble);
     }
     return;
 
     /*
-      <section class="catagory">
-        <div class="bubbles-container">
-          <div class="overflow-wrapper">
-            <div>Bubble 1</div>
-            <div>Bubble 2</div>
-            <div>Bubble 3</div>
-            ......//
-          </div>
-        </div>
-      </section>
+      <div class="overflow-wrapper">
+        <div>Bubble 1</div>
+        <div>Bubble 2</div>
+        <div>Bubble 3</div>
+        ......//
+      </div>
     */
   }
 
-  teardownCatagories() {
+  teardownTemplate() {
     let teardownTarget = document.querySelector(".bubbles-container");
     teardownTarget?.remove();
     if (this.toggleSwitch != null) this.toggleSwitch.innerText = "+";
+    if (this.title != null) this.title.style.color = "var(--theme-lt-text)";
     return;
   }
 }
+
+export default Catagory;

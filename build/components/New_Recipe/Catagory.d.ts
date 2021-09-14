@@ -1,12 +1,8 @@
-export declare class Catagory {
-    catagory: Element | null;
-    isOpen: boolean;
-    title: HTMLElement | null;
-    toggleSwitch: HTMLElement | null;
-    constructor();
-    clickHandler(e: Event): void;
-    activateCatagory(): void;
+import Template from "./Template.js";
+declare class Catagory extends Template {
+    buildTemplate(): void;
     createContainer(): void;
     createBubbles(): void;
-    teardownCatagories(): void;
+    teardownTemplate(): void;
 }
+export default Catagory;

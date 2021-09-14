@@ -1,4 +1,5 @@
 @import url("./catagory.css");
+@import url("./ingredient.css");
 
 :root {
   --border-color: var(--theme-grey);
@@ -45,9 +46,7 @@ input:focus {
 .add-info:hover {
   cursor: pointer;
 }
-.add-info h6 {
-  font-size: 1.8rem;
-}
+
 .add-info span {
   font-size: 2rem;
 }

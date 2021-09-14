@@ -1,5 +1,6 @@
 @import url("./components/Header/index.css");
 @import url("./components/Fonts/gradient-text.css");
+@import url("./components/Fonts/sizes.css");
 
 * {
   margin: 0;
