@@ -79,15 +79,16 @@ class Ingredient extends Template {
     const amountSpan = document.createElement("span");
     const unitSpan = document.createElement("span");
 
-    const amountName = document.createElement("input");
-    amountName.type = "number";
-    amountName.placeholder = "0";
+    const amount = document.createElement("input");
+    amount.type = "number";
+    amount.placeholder = "0";
+    amount.id = "amount";
 
     const unit = document.createElement("select");
     unit.name = "amount-unit";
     unit.id = "amount-unit";
 
-    amountSpan.append(amountName);
+    amountSpan.append(amount);
     unitSpan.append(unit);
 
     wrapper.append(amountSpan);
@@ -134,17 +135,47 @@ class Ingredient extends Template {
   createSaveButton() {
     const button = document.createElement("button");
     button.innerText = "Save";
-    button.disabled = true;
 
     this.root?.append(button);
 
-    button.addEventListener("click", () => saveFormData());
-
-    function saveFormData() {}
+    button.addEventListener("click", (e) => this.saveFormData(e));
   }
 
+  saveFormData(evt: Event) {
+    evt.preventDefault();
+
+    //@ts-ignore
+    let name = document.getElementById("ingredient-name")?.value;
+    //@ts-ignore
+    let amount = document.getElementById("amount")?.value;
+    //@ts-ignore
+    let unit = document.getElementById("amount-unit")?.value;
+
+    //Send info to back end here
+
+    //Teardown component here
+    this.teardownTemplate();
+
+    //Add new component here
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "finished-ingredient-wrapper";
+    const nameOfIng = document.createElement("h6");
+    nameOfIng.innerText = name;
+    const amountOfIng = document.createElement("h6");
+    amountOfIng.innerText = amount;
+    const amountUnit = document.createElement("h6");
+    amountUnit.innerText = unit;
+
+    wrapper.append(nameOfIng);
+    wrapper.append(amountOfIng);
+    wrapper.append(amountUnit);
+
+    this.sectionElement?.prepend(wrapper);
+    console.log(name, amount, unit);
+  }
   teardownTemplate() {
-    console.log("teardown");
+    this.root?.remove();
   }
 }
 

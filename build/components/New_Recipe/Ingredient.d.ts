@@ -8,6 +8,7 @@ declare class Ingredient extends Template {
     createNameInput(): void;
     createAmountInput(): void;
     createSaveButton(): void;
+    saveFormData(evt: Event): void;
     teardownTemplate(): void;
 }
 export default Ingredient;
