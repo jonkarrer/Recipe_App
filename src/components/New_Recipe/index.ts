@@ -1,7 +1,14 @@
 import Catagory from "./Catagory.js";
 import Ingredient from "./Ingredient.js";
+import Method from "./Method.js";
+import Note from "./Note.js";
 
-// Pass the dom selectors into the class. Both are used as buttons to activate the scripts.
+// Pass the DOM id of desired section.
+
 new Catagory("catagory");
 
 new Ingredient("ingredient");
+
+new Method("method");
+
+new Note("note");

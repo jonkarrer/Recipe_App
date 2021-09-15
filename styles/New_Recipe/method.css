@@ -1,0 +1,27 @@
+.new-method-wrapper {
+  margin-bottom: 30px;
+
+  display: grid;
+  place-items: center;
+
+  gap: 40px;
+}
+.new-method-wrapper img {
+  width: 40px;
+}
+
+.new-method-wrapper textarea {
+  width: 90%;
+  margin: auto;
+}
+
+.finished-method-wrapper p {
+  margin: 15px 20px;
+  padding: 20px;
+
+  color: var(--theme-dk-text);
+
+  background: rgba(0, 0, 0, 0.1);
+
+  font-size: 1rem;
+}
