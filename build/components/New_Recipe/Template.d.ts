@@ -7,5 +7,4 @@ export default class Template {
     constructor(sectionId: string);
     clickHandler(e: Event): void;
     buildTemplate(): void;
-    teardownTemplate(): void;
 }

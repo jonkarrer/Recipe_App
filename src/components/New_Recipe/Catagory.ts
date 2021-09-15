@@ -5,6 +5,8 @@ class Catagory extends Template {
     if (this.toggleSwitch != null) this.toggleSwitch.innerText = "-";
     if (this.title != null) this.title.style.color = "var(--theme-dk-text)";
 
+    this.toggleSwitch?.addEventListener("click", () => this.teardownTemplate());
+
     this.createContainer();
     this.createBubbles();
     return;
@@ -72,6 +74,7 @@ class Catagory extends Template {
     teardownTarget?.remove();
     if (this.toggleSwitch != null) this.toggleSwitch.innerText = "+";
     if (this.title != null) this.title.style.color = "var(--theme-lt-text)";
+    this.isNotOpen = true;
     return;
   }
 }

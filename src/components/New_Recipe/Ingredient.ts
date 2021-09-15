@@ -38,8 +38,9 @@ class Ingredient extends Template {
     title.innerHTML = "Ingredient";
     title.style.color = "var(--theme-dk-text)";
 
-    const toggle = document.createElement("h1");
-    toggle.innerHTML = "-";
+    const toggle = document.createElement("img");
+    toggle.src = "./assets/bolt.svg";
+    toggle.id = "delete-ingredient";
     toggle.addEventListener("click", () => this.teardownTemplate());
 
     wrapper.append(title);
@@ -111,7 +112,6 @@ class Ingredient extends Template {
 
     /*
     <form class="new-ingredient-wrapper">
-
         <div class="amount-wrapper">
           <span>
             <input type="number" />
@@ -127,23 +127,32 @@ class Ingredient extends Template {
               </select>
           </span>
         </div>
-      
     </form>
     */
   }
 
   createSaveButton() {
-    const button = document.createElement("button");
-    button.innerText = "Save";
+    const save = document.createElement("button");
+    save.innerText = "Save";
 
-    this.root?.append(button);
+    this.root?.append(save);
 
-    button.addEventListener("click", (e) => this.saveFormData(e));
+    save.addEventListener("click", (e) => this.saveFormData(e));
+
+    /*
+      <form class="new-ingredient-wrapper">
+      ...../////
+
+        <button onclick="saveFromData(e)"> Save </button>
+
+      </form>
+    */
   }
 
   saveFormData(evt: Event) {
     evt.preventDefault();
 
+    //Capture user input
     //@ts-ignore
     let name = document.getElementById("ingredient-name")?.value;
     //@ts-ignore
@@ -151,19 +160,21 @@ class Ingredient extends Template {
     //@ts-ignore
     let unit = document.getElementById("amount-unit")?.value;
 
-    //Send info to back end here
+    //Send input info to back end
 
-    //Teardown component here
+    //Teardown component
     this.teardownTemplate();
 
-    //Add new component here
-
+    //Add new component
     const wrapper = document.createElement("div");
     wrapper.className = "finished-ingredient-wrapper";
+
     const nameOfIng = document.createElement("h6");
     nameOfIng.innerText = name;
+
     const amountOfIng = document.createElement("h6");
     amountOfIng.innerText = amount;
+
     const amountUnit = document.createElement("h6");
     amountUnit.innerText = unit;
 
@@ -171,11 +182,69 @@ class Ingredient extends Template {
     wrapper.append(amountOfIng);
     wrapper.append(amountUnit);
 
+    //Add unique id to wrapper. This will be used for back end identification
+    wrapper.id = `${Date.now()}`;
+
+    wrapper.addEventListener("click", () =>
+      this.editIngredient(name, amount, unit, wrapper)
+    );
+
     this.sectionElement?.prepend(wrapper);
-    console.log(name, amount, unit);
+
+    /*
+      <section id="ingredient">
+
+        <div class = "finished-ingredient-wrapper">
+          <h6>Ingredient Name</h6>
+          <h6>Amout</h6>
+          <h6>Unit</h6>
+        </div>
+
+        .......//
+      </section>
+    */
+
+    console.log(
+      name,
+      amount,
+      unit,
+      wrapper.id,
+      "from saveFormData() Ingredients.ts"
+    );
   }
+
+  editIngredient(
+    name: string,
+    amount: string,
+    unit: string,
+    wrapper: HTMLElement | null
+  ) {
+    //Use wrapper.id to change the back end data. Immedietly delete the data and let the new ingredient save new user input.
+
+    //Remove ingredient from DOM
+    wrapper?.remove();
+
+    //Create new ingredient template
+    this.buildTemplate();
+
+    //Grab input fields and set new values to the ingredients values
+    //@ts-ignore
+    let nameInput = document.getElementById("ingredient-name");
+    //@ts-ignore
+    let amountInput = document.getElementById("amount");
+    //@ts-ignore
+    let unitInput = document.getElementById("amount-unit");
+    //@ts-ignore
+    amountInput.value = amount;
+    //@ts-ignore
+    nameInput.value = name;
+    //@ts-ignore
+    unitInput.value = unit;
+  }
+
   teardownTemplate() {
     this.root?.remove();
+    this.isNotOpen = true;
   }
 }
 

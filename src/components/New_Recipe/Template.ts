@@ -7,7 +7,7 @@ export default class Template {
   constructor(public sectionId: string) {
     this.sectionElement = document.getElementById(sectionId);
 
-    this.isNotOpen = false;
+    this.isNotOpen = true;
 
     this.title = document.getElementById(`title-switch-${sectionId}`);
     this.toggleSwitch = document.getElementById(`toggle-switch-${sectionId}`);
@@ -22,16 +22,9 @@ export default class Template {
   clickHandler(e: Event) {
     e.stopPropagation();
 
-    this.isNotOpen = !this.isNotOpen;
-
-    if (this.isNotOpen) {
-      return this.buildTemplate();
-    } else {
-      return this.teardownTemplate();
-    }
+    if (this.isNotOpen) this.buildTemplate();
+    this.isNotOpen = false;
   }
 
   buildTemplate() {}
-
-  teardownTemplate() {}
 }
