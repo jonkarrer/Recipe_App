@@ -36,6 +36,7 @@ class Ingredient extends Template {
   createTitle() {
     const wrapper = document.createElement("span");
     wrapper.className = "add-info";
+    wrapper.id = "ingredient-anchor";
 
     const title = document.createElement("h6");
     title.innerHTML = "Ingredient";

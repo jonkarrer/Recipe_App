@@ -1,0 +1,40 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  width: 100vw;
+  border-top: var(--theme-dk-text) solid thin;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: white;
+  z-index: 100;
+}
+footer div {
+  display: grid;
+  place-content: center;
+  width: 100%;
+}
+footer img {
+  width: 80px;
+}
+
+footer div:last-child img {
+  margin-bottom: 10px;
+}
+
+footer div:first-child {
+  border-right: var(--theme-blue) solid thin;
+}
+
+footer .save-screen {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: red;
+}

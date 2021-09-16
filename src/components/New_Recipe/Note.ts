@@ -17,6 +17,7 @@ class Note extends Template {
   createWrapper() {
     const wrapper = document.createElement("div");
     wrapper.className = "new-note-wrapper";
+    wrapper.id = "note-anchor";
 
     this.sectionElement?.append(wrapper);
 

@@ -17,6 +17,7 @@ class Method extends Template {
   createWrapper() {
     const wrapper = document.createElement("form");
     wrapper.className = "new-method-wrapper";
+    wrapper.id = "method-anchor";
 
     this.sectionElement?.prepend(wrapper);
 
