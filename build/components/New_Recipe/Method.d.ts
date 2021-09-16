@@ -8,6 +8,7 @@ declare class Method extends Template {
     createTextArea(): void;
     createSaveButton(): void;
     saveFormData(evt: Event): void;
+    createFinishedComponent(textareaInput: string): void;
     editMethod(textareaInput: string, wrapper: HTMLElement | null): void;
     teardownTemplate(): void;
 }

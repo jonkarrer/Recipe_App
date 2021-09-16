@@ -1,10 +1,12 @@
 .save_button {
   background: var(--theme-blue);
-  width: 90%;
+  width: 100%;
   color: white;
   font-size: inherit;
 
   padding: 10px 0;
 
   border: none;
+
+  font-size: 1.6rem;
 }

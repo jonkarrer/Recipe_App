@@ -13,10 +13,18 @@
 .new-method-wrapper textarea {
   width: 90%;
   margin: auto;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+
+.finished-method-wrapper {
+  overflow: hidden;
+  margin: auto;
+  width: 90%;
+  margin: 30px auto;
 }
 
 .finished-method-wrapper p {
-  margin: 15px 20px;
   padding: 20px;
 
   color: var(--theme-dk-text);
@@ -24,4 +32,11 @@
   background: rgba(0, 0, 0, 0.1);
 
   font-size: 1rem;
+
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+
+  width: 90vw;
 }

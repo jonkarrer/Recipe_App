@@ -13,15 +13,20 @@ class Method extends Template {
     this.createSaveButton();
     return;
   }
-  createWrapper() {
-    const section = this.sectionElement;
 
+  createWrapper() {
     const wrapper = document.createElement("form");
     wrapper.className = "new-method-wrapper";
 
-    section?.prepend(wrapper);
+    this.sectionElement?.prepend(wrapper);
 
-    this.root = document.querySelector(".new-method-wrapper");
+    this.root = document.querySelector(`.${wrapper.className}`);
+
+    /*
+      <section id="method">
+        <form class="new-method-wrapper"></form>
+      </section>
+    */
 
     return;
   }
@@ -36,6 +41,7 @@ class Method extends Template {
 
     const toggle = document.createElement("img");
     toggle.src = "./assets/bolt.svg";
+    toggle.alt = "delete button";
     toggle.id = "delete-method";
     toggle.addEventListener("click", () => this.teardownTemplate());
 
@@ -43,6 +49,13 @@ class Method extends Template {
     wrapper.append(toggle);
 
     this.root?.prepend(wrapper);
+
+    /*
+      <span class="add-info">
+        <h6>Method</h6>
+        <img src="./assets/bolt.svg" alt="delete button"/>
+      </span>
+    */
 
     return;
   }
@@ -86,20 +99,24 @@ class Method extends Template {
     this.teardownTemplate();
 
     //Add new component
+    this.createFinishedComponent(textareaInput);
+
+    return;
+  }
+
+  createFinishedComponent(textareaInput: string) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-method-wrapper";
+    //Add unique id to wrapper. This will be used for back end identification
+    wrapper.id = `${Date.now()}`;
+    wrapper.addEventListener("click", () =>
+      this.editMethod(textareaInput, wrapper)
+    );
 
     const methodText = document.createElement("p");
     methodText.innerText = textareaInput;
 
     wrapper.append(methodText);
-
-    //Add unique id to wrapper. This will be used for back end identification
-    wrapper.id = `${Date.now()}`;
-
-    wrapper.addEventListener("click", () =>
-      this.editMethod(textareaInput, wrapper)
-    );
 
     this.sectionElement?.append(wrapper);
 
@@ -115,8 +132,8 @@ class Method extends Template {
     //Create new method template
     this.buildTemplate();
 
+    //re-populate textarea with previous input
     let textarea = document.getElementById("method-input");
-
     //@ts-ignore
     textarea.value = textareaInput;
 

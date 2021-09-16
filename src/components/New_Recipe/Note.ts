@@ -1,44 +1,76 @@
 import Template from "./Template.js";
 
 class Note extends Template {
+  root: HTMLElement | null;
+  constructor(...args: [string]) {
+    super(...args);
+    this.root = null;
+  }
   buildTemplate() {
-    if (this.toggleSwitch != null) this.toggleSwitch.innerText = "-";
-    if (this.title != null) this.title.style.color = "var(--theme-dk-text)";
-
-    this.toggleSwitch?.addEventListener("click", () => this.teardownTemplate());
-
     this.createWrapper();
+    this.createTitle();
     this.createTextarea();
     this.createSaveButton();
     return;
   }
+
   createWrapper() {
-    const root = this.sectionElement;
-    const parent: HTMLDivElement = document.createElement("div");
-    parent.className = "new-note-wrapper";
+    const wrapper = document.createElement("div");
+    wrapper.className = "new-note-wrapper";
 
-    root?.append(parent);
+    this.sectionElement?.append(wrapper);
+
+    this.root = document.querySelector(`.${wrapper.className}`);
+
+    return;
   }
-  createTextarea() {
-    const root = document.querySelector(".new-note-wrapper");
 
+  createTitle() {
+    const wrapper = document.createElement("span");
+    wrapper.className = "add-info";
+
+    const title = document.createElement("h6");
+    title.innerHTML = "Note";
+    title.style.color = "var(--theme-dk-text)";
+
+    const toggle = document.createElement("img");
+    toggle.src = "./assets/bolt.svg";
+    toggle.alt = "delete button";
+    toggle.id = "delete-note";
+    toggle.addEventListener("click", () => this.teardownTemplate());
+
+    wrapper.append(title);
+    wrapper.append(toggle);
+
+    this.root?.prepend(wrapper);
+
+    /*
+      <span class="add-info">
+        <h6>Note</h6>
+        <img src="./assets/bolt.svg" alt="delete button"/>
+      </span>
+    */
+
+    return;
+  }
+
+  createTextarea() {
     const input = document.createElement("textarea");
     input.placeholder = "Describe Method";
     input.cols = 40;
     input.rows = 7;
     input.id = "note-input";
 
-    root?.append(input);
+    this.root?.append(input);
   }
-  createSaveButton() {
-    const root = document.querySelector(".new-note-wrapper");
 
+  createSaveButton() {
     const save = document.createElement("button");
     save.type = "submit";
     save.innerText = "Save";
     save.className = "save_button";
 
-    root?.append(save);
+    this.root?.append(save);
 
     save.addEventListener("click", (e) => this.saveFormData(e));
 
@@ -59,11 +91,17 @@ class Note extends Template {
     this.teardownTemplate();
 
     //Add new component
+    this.createFinishedComponent(textareaInput);
+
+    return;
+  }
+
+  createFinishedComponent(textareaInput: string) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-note-wrapper";
 
-    const methodText = document.createElement("h6");
-    methodText.innerText = "Note";
+    const methodText = document.createElement("p");
+    methodText.innerText = textareaInput;
 
     wrapper.append(methodText);
 
