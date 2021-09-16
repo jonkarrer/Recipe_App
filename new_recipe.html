@@ -51,17 +51,46 @@
     </main>
 
     <footer>
-      <div>
-        <a href="./index.html"
-          ><img src="./assets/save.svg" alt="save icon"
-        /></a>
+      <span class="save-screen">
+        <img src="./assets/save_screen.png" alt="robot and human high five" />
+        <h1>Saved!!</h1>
+      </span>
+      <span class="delete-screen">
+        <img src="./assets/save_screen.png" alt="robot and human high five" />
+        <h1>Deleted!!</h1>
+      </span>
+      <div class="save-wrapper" onclick="showSaveScreen()">
+        <a><img src="./assets/save.svg" alt="save icon" /></a>
       </div>
-      <div>
-        <a href="./index.html"
-          ><img src="./assets/delete.svg" alt="delete icon"
-        /></a>
+      <div class="delete-wrapper" onclick="showDeleteScreen()">
+        <a><img src="./assets/delete.svg" alt="delete icon" /></a>
       </div>
     </footer>
     <script type="module" src="./build/components/New_Recipe/index.js"></script>
+
+    <script>
+      function showSaveScreen() {
+        //Show that recipe was saved
+        const element = document.querySelector(".save-screen");
+        element.style.visibility = "visible";
+
+        //Then redirect to home page
+        setTimeout(
+          () => window.location.replace("http://127.0.0.1:5500/index.html"),
+          2300
+        );
+      }
+      function showDeleteScreen() {
+        //Show that recipe was saved
+        const element = document.querySelector(".delete-screen");
+        element.style.visibility = "visible";
+
+        //Then redirect to home page
+        setTimeout(
+          () => window.location.replace("http://127.0.0.1:5500/index.html"),
+          2300
+        );
+      }
+    </script>
   </body>
 </html>
