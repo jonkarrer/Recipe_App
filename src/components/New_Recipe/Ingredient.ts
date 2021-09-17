@@ -2,9 +2,11 @@ import Template from "./Template.js";
 
 class Ingredient extends Template {
   root: HTMLElement | null;
+  infoPacket: { id: number; name: string; amount: string; unit: string } | null;
   constructor(...args: [string]) {
     super(...args);
     this.root = null;
+    this.infoPacket = null;
   }
   buildTemplate() {
     this.createWrapper();
@@ -165,20 +167,52 @@ class Ingredient extends Template {
 
     //Capture user input
     //@ts-ignore
-    let name = document.getElementById("ingredient-name")?.value;
+    const name = document.getElementById("ingredient-name")?.value;
     if (name === "") return; //Prevents empty fields
     //@ts-ignore
-    let amount = document.getElementById("amount")?.value;
+    const amount = document.getElementById("amount")?.value;
     if (amount === "") return;
     //@ts-ignore
-    let unit = document.getElementById("amount-unit")?.value;
+    const unit = document.getElementById("amount-unit")?.value;
+
+    const identifier = Date.now();
 
     //Send input info to back end
+    this.infoPacket = {
+      id: identifier,
+      name: name,
+      amount: amount,
+      unit: unit,
+    };
+    this.userDataCollector.push(this.infoPacket);
 
     //Teardown component
     this.teardownTemplate();
 
     //Add new component
+    this.createFinishedComponent(name, amount, unit, identifier);
+
+    return;
+    /*
+      <section id="ingredient">
+
+        <div class = "finished-ingredient-wrapper">
+          <h6>Ingredient Name</h6>
+          <h6>Amout</h6>
+          <h6>Unit</h6>
+        </div>
+
+        .......//
+      </section>
+    */
+  }
+
+  createFinishedComponent(
+    name: string,
+    amount: string,
+    unit: string,
+    identifier: number
+  ) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-ingredient-wrapper";
 
@@ -201,43 +235,24 @@ class Ingredient extends Template {
     wrapper.append(nameOfIng);
     wrapper.append(amountContainer);
 
-    //Add unique id to wrapper. This will be used for back end identification
-    wrapper.id = `${Date.now()}`;
-
     wrapper.addEventListener("click", () =>
-      this.editIngredient(name, amount, unit, wrapper)
+      this.editIngredient(name, amount, unit, wrapper, identifier)
     );
 
     this.sectionElement?.prepend(wrapper);
-
-    return console.log(
-      name,
-      amount,
-      unit,
-      wrapper.id,
-      "from saveFormData() Ingredients.ts"
-    );
-    /*
-      <section id="ingredient">
-
-        <div class = "finished-ingredient-wrapper">
-          <h6>Ingredient Name</h6>
-          <h6>Amout</h6>
-          <h6>Unit</h6>
-        </div>
-
-        .......//
-      </section>
-    */
   }
 
   editIngredient(
     name: string,
     amount: string,
     unit: string,
-    wrapper: HTMLElement | null
+    wrapper: HTMLElement | null,
+    identifier: number
   ) {
-    //Use wrapper.id to change the back end data. Immedietly delete the data and let the new ingredient save new user input.
+    //Filter out the ingredient by its id. Identifier is drilled down 3 deep
+    this.userDataCollector = this.userDataCollector.filter(
+      (item: any) => item.id != identifier
+    );
 
     //Remove ingredient from DOM
     wrapper?.remove();

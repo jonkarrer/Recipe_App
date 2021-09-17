@@ -41,19 +41,26 @@ class Catagory extends Template {
     const wrapper: HTMLElement | null =
       document.querySelector(".overflow-wrapper");
 
-    let i = 0;
-    for (i; i < 6; i++) {
-      const bubble: HTMLDivElement = document.createElement("div");
-      bubble.innerText = `Bubble ${i}`;
-      bubble.setAttribute("data-catagory-name", `${i}`);
+    //Stock data
+    const catagories = [
+      "Vegan",
+      "Breakfast",
+      "Soup",
+      "Lunch",
+      "Dinner",
+      "Creole",
+      "Special",
+    ];
 
-      /// This will capture the information to store in the backend
+    for (const cat of catagories) {
+      const bubble = document.createElement("div");
+      bubble.innerText = `${cat}`;
+      bubble.setAttribute("data-catagory-name", `${cat}`);
 
-      bubble.addEventListener("click", function (this) {
-        bubble.style.background = "var(--theme-blue)";
-        bubble.style.color = "var(--theme-lt-text)";
-        console.log(this.getAttribute("data-catagory-name"));
-      });
+      // This will capture the information to store in the backend
+      bubble.addEventListener("click", (evt) =>
+        this.captureUserSelection(bubble, evt, cat, catagories)
+      );
 
       wrapper?.append(bubble);
     }
@@ -67,6 +74,41 @@ class Catagory extends Template {
         ......//
       </div>
     */
+  }
+
+  captureUserSelection(
+    bubble: HTMLElement,
+    evt: Event,
+    cat: string,
+    catagories: Array<string>
+  ) {
+    interface ICat {
+      id: number;
+      catagory: string | null;
+    }
+
+    if (bubble.style.background != "var(--theme-blue)") {
+      //Change color to reflect has been clicked;
+      bubble.style.background = "var(--theme-blue)";
+      bubble.style.color = "var(--theme-lt-text)";
+
+      const infoPacket: ICat = {
+        id: catagories.indexOf(cat),
+        //@ts-ignore
+        catagory: evt.target?.getAttribute("data-catagory-name"),
+      };
+
+      this.userDataCollector.push(infoPacket);
+    } else {
+      //Change color to reflect has been clicked again;
+      bubble.style.background = "var(--theme-grey)";
+      bubble.style.color = "var(--theme-dk-text)";
+
+      //Remove the catagory that was clicked;
+      this.userDataCollector = this.userDataCollector.filter(
+        (item: ICat) => item.id != catagories.indexOf(cat)
+      );
+    }
   }
 
   teardownTemplate() {

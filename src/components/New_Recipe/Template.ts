@@ -3,8 +3,12 @@ export default class Template {
   title: HTMLElement | null;
   toggleSwitch: HTMLElement | null;
   sectionElement: HTMLElement | null;
+  userDataCollector: any;
 
   constructor(public sectionId: string) {
+    //This collcts the inputs from each catagory.
+    this.userDataCollector = [];
+
     this.sectionElement = document.getElementById(sectionId);
 
     this.isNotOpen = true;
@@ -26,5 +30,10 @@ export default class Template {
     this.isNotOpen = false;
   }
 
+  //This initaites the inheriting components logic.
   buildTemplate() {}
+
+  getAllData() {
+    console.log(this.userDataCollector);
+  }
 }

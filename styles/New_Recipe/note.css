@@ -36,12 +36,12 @@
 
   background: rgba(0, 0, 0, 0.1);
 
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   overflow: hidden;
 
-  width: 90vw;
+  width: 85vw;
 }
