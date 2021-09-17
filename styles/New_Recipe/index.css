@@ -24,8 +24,8 @@ main {
   display: grid;
 
   gap: 30px;
-  margin-top: 50px;
-  margin-bottom: 150px;
+  padding-top: 40px;
+  padding-bottom: 150px;
 }
 input {
   width: 100%;
@@ -39,7 +39,7 @@ input:focus {
   border-bottom: solid 3px var(--border-color);
 }
 #recipe_name {
-  font-size: 3rem;
+  font-size: 2.6rem;
   border-bottom: solid 3px var(--border-color);
   text-align: center;
   padding: 10px 0;
