@@ -182,6 +182,9 @@ class Ingredient extends Template {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-ingredient-wrapper";
 
+    const amountContainer = document.createElement("div");
+    amountContainer.className = "amount-container";
+
     const nameOfIng = document.createElement("h6");
     nameOfIng.innerText = name;
 
@@ -191,9 +194,12 @@ class Ingredient extends Template {
     const amountUnit = document.createElement("h6");
     amountUnit.innerText = unit;
 
+    amountContainer.append(amountOfIng);
+
+    amountContainer.append(amountUnit);
+
     wrapper.append(nameOfIng);
-    wrapper.append(amountOfIng);
-    wrapper.append(amountUnit);
+    wrapper.append(amountContainer);
 
     //Add unique id to wrapper. This will be used for back end identification
     wrapper.id = `${Date.now()}`;

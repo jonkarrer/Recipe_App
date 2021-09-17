@@ -22,7 +22,7 @@
 
   color: var(--theme-dk-text);
 
-  box-shadow: 1px 1px 10px #333;
+  box-shadow: 1px 1px 5px #333;
 }
 
 /* Navigation links in header.*/
