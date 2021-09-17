@@ -1,9 +1,12 @@
 .new-ingredient-wrapper {
   margin: 20px 0;
+  padding: 25px;
 
   display: grid;
   place-items: center;
   gap: 40px;
+
+  background: var(--theme-lt-grey);
 }
 
 /* Ingredient name*/

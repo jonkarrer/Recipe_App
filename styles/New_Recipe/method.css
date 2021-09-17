@@ -1,10 +1,15 @@
 .new-method-wrapper {
   margin-bottom: 30px;
+  padding: 25px;
 
   display: grid;
   place-items: center;
 
   gap: 40px;
+
+  background: var(--theme-grey);
+
+  background: var(--theme-lt-grey);
 }
 .new-method-wrapper img {
   width: 40px;
@@ -13,7 +18,7 @@
 .new-method-wrapper textarea {
   width: 90%;
   margin: auto;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 10px;
 }
 
