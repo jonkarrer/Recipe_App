@@ -1,8 +1,9 @@
 import Template from "./Template.js";
+import { IIngredient } from "./interfaces.js";
 
 class Ingredient extends Template {
   root: HTMLElement | null;
-  infoPacket: { id: number; name: string; amount: string; unit: string } | null;
+  infoPacket: IIngredient | null;
   constructor(...args: [string]) {
     super(...args);
     this.root = null;

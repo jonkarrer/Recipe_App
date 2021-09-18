@@ -1,4 +1,5 @@
 import Template from "./Template.js";
+import { IMethod } from "./interfaces.js";
 
 class Method extends Template {
   root: HTMLElement | null;
@@ -95,23 +96,23 @@ class Method extends Template {
     if (textareaInput === "") return; //Prevents empty fields
 
     //Send input info to back end
+    const infoPacket: IMethod = { id: Date.now(), method: textareaInput };
+    this.userDataCollector.push(infoPacket);
 
     //Teardown component
     this.teardownTemplate();
 
     //Add new component
-    this.createFinishedComponent(textareaInput);
+    this.createFinishedComponent(textareaInput, infoPacket.id);
 
     return;
   }
 
-  createFinishedComponent(textareaInput: string) {
+  createFinishedComponent(textareaInput: string, id: number) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-method-wrapper";
-    //Add unique id to wrapper. This will be used for back end identification
-    wrapper.id = `${Date.now()}`;
     wrapper.addEventListener("click", () =>
-      this.editMethod(textareaInput, wrapper)
+      this.editMethod(textareaInput, wrapper, id)
     );
 
     const methodText = document.createElement("p");
@@ -124,8 +125,11 @@ class Method extends Template {
     return;
   }
 
-  editMethod(textareaInput: string, wrapper: HTMLElement | null) {
-    //Use wrapper.id to change the back end data. Immedietly delete the data and let the new ingredient save new user input.
+  editMethod(textareaInput: string, wrapper: HTMLElement | null, id: number) {
+    //Remove data from backend
+    this.userDataCollector = this.userDataCollector.filter(
+      (item: any) => item.id != id
+    );
 
     //Remove method from DOM
     wrapper?.remove();

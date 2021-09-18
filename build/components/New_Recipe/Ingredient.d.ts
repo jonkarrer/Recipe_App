@@ -1,12 +1,8 @@
 import Template from "./Template.js";
+import { IIngredient } from "./interfaces.js";
 declare class Ingredient extends Template {
     root: HTMLElement | null;
-    infoPacket: {
-        id: number;
-        name: string;
-        amount: string;
-        unit: string;
-    } | null;
+    infoPacket: IIngredient | null;
     constructor(...args: [string]);
     buildTemplate(): void;
     createWrapper(): void;

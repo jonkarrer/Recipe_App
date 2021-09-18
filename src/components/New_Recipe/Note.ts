@@ -1,4 +1,5 @@
 import Template from "./Template.js";
+import { INote } from "./interfaces.js";
 
 class Note extends Template {
   root: HTMLElement | null;
@@ -87,17 +88,19 @@ class Note extends Template {
     if (textareaInput === "") return; //Prevents empty fields
 
     //Send input info to back end
+    const infoPacket: INote = { id: Date.now(), note: textareaInput };
+    this.userDataCollector.push(infoPacket);
 
     //Teardown component
     this.teardownTemplate();
 
     //Add new component
-    this.createFinishedComponent(textareaInput);
+    this.createFinishedComponent(textareaInput, infoPacket.id);
 
     return;
   }
 
-  createFinishedComponent(textareaInput: string) {
+  createFinishedComponent(textareaInput: string, id: number) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-note-wrapper";
 
@@ -110,7 +113,7 @@ class Note extends Template {
     wrapper.id = `${Date.now()}`;
 
     wrapper.addEventListener("click", () =>
-      this.editMethod(textareaInput, wrapper)
+      this.editMethod(textareaInput, wrapper, id)
     );
 
     this.sectionElement?.append(wrapper);
@@ -118,8 +121,11 @@ class Note extends Template {
     return;
   }
 
-  editMethod(textareaInput: string, wrapper: HTMLElement | null) {
-    //Use wrapper.id to change the back end data. Immedietly delete the data and let the new ingredient save new user input.
+  editMethod(textareaInput: string, wrapper: HTMLElement | null, id: number) {
+    //Remove data from back end
+    this.userDataCollector = this.userDataCollector.filter(
+      (item: any) => item.id != id
+    );
 
     //Remove method from DOM
     wrapper?.remove();

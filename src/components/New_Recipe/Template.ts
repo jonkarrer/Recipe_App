@@ -34,6 +34,6 @@ export default class Template {
   buildTemplate() {}
 
   getAllData() {
-    console.log(this.userDataCollector);
+    return this.userDataCollector;
   }
 }

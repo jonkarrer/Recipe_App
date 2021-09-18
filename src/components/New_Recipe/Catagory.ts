@@ -1,4 +1,5 @@
 import Template from "./Template.js";
+import { ICatagory } from "./interfaces.js";
 
 class Catagory extends Template {
   buildTemplate() {
@@ -82,17 +83,12 @@ class Catagory extends Template {
     cat: string,
     catagories: Array<string>
   ) {
-    interface ICat {
-      id: number;
-      catagory: string | null;
-    }
-
     if (bubble.style.background != "var(--theme-blue)") {
       //Change color to reflect has been clicked;
       bubble.style.background = "var(--theme-blue)";
       bubble.style.color = "var(--theme-lt-text)";
 
-      const infoPacket: ICat = {
+      const infoPacket: ICatagory = {
         id: catagories.indexOf(cat),
         //@ts-ignore
         catagory: evt.target?.getAttribute("data-catagory-name"),
@@ -106,7 +102,7 @@ class Catagory extends Template {
 
       //Remove the catagory that was clicked;
       this.userDataCollector = this.userDataCollector.filter(
-        (item: ICat) => item.id != catagories.indexOf(cat)
+        (item: ICatagory) => item.id != catagories.indexOf(cat)
       );
     }
   }

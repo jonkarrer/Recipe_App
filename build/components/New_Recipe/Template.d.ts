@@ -8,5 +8,5 @@ export default class Template {
     constructor(sectionId: string);
     clickHandler(e: Event): void;
     buildTemplate(): void;
-    getAllData(): void;
+    getAllData(): any;
 }
