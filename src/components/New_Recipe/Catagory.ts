@@ -42,7 +42,7 @@ class Catagory extends Template {
     const wrapper: HTMLElement | null =
       document.querySelector(".overflow-wrapper");
 
-    //Stock data
+    //Stock data, will come from users custom catagories
     const catagories = [
       "Vegan",
       "Breakfast",

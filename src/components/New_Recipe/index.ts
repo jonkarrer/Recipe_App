@@ -2,39 +2,33 @@ import Catagory from "./Catagory.js";
 import Ingredient from "./Ingredient.js";
 import Method from "./Method.js";
 import Note from "./Note.js";
+import { IMaster } from "./interfaces.js";
 
-import { ICatagory, IIngredient, INote, IMethod } from "./interfaces.js";
-
-// Pass the DOM id of desired section.
-
+// Initiate App and Pass the desired DOM id of desired section.
 const catagory = new Catagory("catagory");
-
 const ingredient = new Ingredient("ingredient");
-
 const method = new Method("method");
-
 const note = new Note("note");
 
-//Add click event to the save button
+//Create footer's save button
 document
   .querySelector("footer .save-wrapper")
   ?.addEventListener("click", () => showSaveScreen());
+function showSaveScreen() {
+  //Commit master data to back end
+  saveAllData();
 
-//Add click enent to the delete button
-document
-  .querySelector("footer .delete-wrapper")
-  ?.addEventListener("click", () => showDeleteScreen());
+  //Show that recipe was saved
+  const element: HTMLElement | null = document.querySelector(".save-screen");
+  if (element != null) element.style.visibility = "visible";
 
+  //Then redirect to home page
+  setTimeout(
+    () => window.location.replace("http://127.0.0.1:5500/index.html"),
+    2300
+  );
+}
 function saveAllData() {
-  interface IMaster {
-    id?: number;
-    name?: string;
-    catagories?: Array<ICatagory>;
-    ingredients?: Array<IIngredient>;
-    methods?: Array<IMethod>;
-    notes?: Array<INote>;
-  }
-
   //@ts-ignore
   const recipeName = document.getElementById("recipe_name").value;
 
@@ -50,20 +44,10 @@ function saveAllData() {
   console.log(masterData);
 }
 
-function showSaveScreen() {
-  saveAllData();
-
-  //Show that recipe was saved
-  // const element: HTMLElement | null = document.querySelector(".save-screen");
-  // if (element != null) element.style.visibility = "visible";
-
-  // //Then redirect to home page
-  // setTimeout(
-  //   () => window.location.replace("http://127.0.0.1:5500/index.html"),
-  //   2300
-  // );
-}
-
+//Create footer's delete button
+document
+  .querySelector("footer .delete-wrapper")
+  ?.addEventListener("click", () => showDeleteScreen());
 function showDeleteScreen() {
   //Show that recipe was saved
   const element: HTMLElement | null = document.querySelector(".delete-screen");

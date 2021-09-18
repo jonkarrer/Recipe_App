@@ -29,7 +29,6 @@ export default class Template {
     if (this.isNotOpen) this.buildTemplate();
     this.isNotOpen = false;
   }
-
   //This initaites the inheriting components logic.
   buildTemplate() {}
 
