@@ -1,4 +1,4 @@
-import { IMaster } from "./src/components/New_Recipe/interfaces.js";
+import { IMaster } from "../New_Recipe/interfaces.js";
 
 const recipeOne: IMaster = {
   id: 1,
@@ -62,3 +62,5 @@ const recipeThree: IMaster = {
   ],
   notes: [{ id: 1, note: "Use hands to eat" }],
 };
+
+export const jasonObj = [recipeOne, recipeTwo, recipeThree];
