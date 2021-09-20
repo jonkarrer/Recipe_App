@@ -1,7 +1,7 @@
 .header {
   /* 01. Used to reset styles after transition is closed via Header/index.js */
-  --width: 65px;
-  --height: 65px;
+  --width: 50px;
+  --height: 50px;
   width: var(--width);
   height: var(--height);
   /**************************************************/
@@ -19,6 +19,7 @@
   z-index: 50;
 
   position: absolute;
+  right: 0;
 
   color: var(--theme-dk-text);
 

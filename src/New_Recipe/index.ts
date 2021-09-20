@@ -18,15 +18,15 @@ function showSaveScreen() {
   //Commit master data to back end
   saveAllData();
 
-  //Show that recipe was saved
-  const element: HTMLElement | null = document.querySelector(".save-screen");
-  if (element != null) element.style.visibility = "visible";
+  // //Show that recipe was saved
+  // const element: HTMLElement | null = document.querySelector(".save-screen");
+  // if (element != null) element.style.visibility = "visible";
 
-  //Then redirect to home page
-  setTimeout(
-    () => window.location.replace("http://127.0.0.1:5500/index.html"),
-    2300
-  );
+  // //Then redirect to home page
+  // setTimeout(
+  //   () => window.location.replace("http://127.0.0.1:5500/index.html"),
+  //   2300
+  // );
 }
 function saveAllData() {
   //@ts-ignore
@@ -41,7 +41,20 @@ function saveAllData() {
   masterData.methods = method.getAllData();
   masterData.notes = note.getAllData();
 
-  console.log(masterData);
+  if (localStorage.getItem("recipes") === null) {
+    localStorage.setItem("recipes", JSON.stringify([masterData]));
+    return;
+  }
+
+  //@ts-ignore
+  const recipeHistory = JSON.parse(localStorage.getItem("recipes"));
+
+  recipeHistory.push(masterData);
+  localStorage.clear();
+
+  console.log(recipeHistory);
+
+  localStorage.setItem("recipes", JSON.stringify(recipeHistory));
 }
 
 //Create footer's delete button

@@ -1,0 +1,7 @@
+import { Catagories } from "./Catagories.js";
+window.onload = async () => {
+    //@ts-ignore
+    let db = JSON.parse(localStorage.getItem("recipes"));
+    new Catagories(db);
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvQ2F0YWdvcmllcy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFFN0MsTUFBTSxDQUFDLE1BQU0sR0FBRyxLQUFLLElBQUksRUFBRTtJQUN6QixZQUFZO0lBQ1osSUFBSSxFQUFFLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUM7SUFFckQsSUFBSSxVQUFVLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDckIsQ0FBQyxDQUFDIn0=

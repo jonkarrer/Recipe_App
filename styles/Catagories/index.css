@@ -1,0 +1,95 @@
+section {
+  padding: 120px 0;
+  margin: 0 30px;
+  display: grid;
+  gap: 30px;
+}
+section h1 {
+  font-size: 3.2rem;
+  color: var(--theme-dk-text);
+}
+section h6 {
+  color: var(--theme-lt-text);
+}
+section h4 {
+  color: var(--theme-lt-text);
+}
+
+.close-recipe-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* Toggle recipe button/title */
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+.open-catagory-wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+/* Single Recipe wrapper */
+.recipe-name-wrapper {
+  background: var(--theme-grey);
+
+  color: var(--theme-dk-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+
+  padding: 15px 0;
+}
+
+/* Recipe Pop up component */
+.open-recipe-wrapper {
+  position: fixed;
+  top: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  color: var(--theme-dk-text);
+  background: white;
+
+  padding: 150px 30px;
+
+  overflow-y: scroll;
+  z-index: 200;
+
+  display: grid;
+  gap: 60px;
+}
+
+/* Ingredients */
+.ingredients-container {
+  display: grid;
+  gap: 15px;
+}
+.single-ingredient {
+  display: grid;
+  align-items: center;
+
+  grid-template-columns: 1fr 50px 50px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Methods */
+.methods-container {
+  display: grid;
+  gap: 40px;
+  font-size: 1.3rem;
+}
+.methods-container img {
+  width: 40px;
+  margin-right: 25px;
+}
+.single-method {
+  display: flex;
+  align-items: center;
+}
