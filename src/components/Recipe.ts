@@ -1,6 +1,6 @@
 import { IMaster } from "../New_Recipe/interfaces";
 
-class Recipe {
+export class Recipe {
   root: HTMLElement;
   wrapper: HTMLElement;
   constructor(private recipe: IMaster) {
@@ -10,18 +10,22 @@ class Recipe {
   }
 
   openRecipe() {
+    // Prevent body from scrolling behind recipe component
     this.root.style.overflow = "hidden";
 
+    // Set up the close button
     const closeRecipeButton = document.createElement("h2");
     closeRecipeButton.className = "close-recipe-button";
     closeRecipeButton.innerText = "X";
-
     closeRecipeButton.addEventListener("click", () => this.teardownComponent());
 
     this.wrapper.append(closeRecipeButton);
 
     this.createWrapper();
+
+    return;
   }
+
   createWrapper() {
     const name = document.createElement("h4");
     //@ts-ignore
@@ -36,7 +40,10 @@ class Recipe {
     this.createNotes();
 
     this.root.appendChild(this.wrapper);
+
+    return;
   }
+
   createIngredients() {
     const container = document.createElement("div");
     container.className = "ingredients-container";
@@ -61,7 +68,10 @@ class Recipe {
     }
 
     this.wrapper.append(container);
+
+    return;
   }
+
   createMethods() {
     const container = document.createElement("div");
     container.className = "methods-container";
@@ -83,7 +93,10 @@ class Recipe {
       }
     }
     this.wrapper.append(container);
+
+    return;
   }
+
   createNotes() {
     const container = document.createElement("div");
     container.className = "notes-container";
@@ -102,11 +115,13 @@ class Recipe {
       }
     }
     this.wrapper.append(container);
+
+    return;
   }
   teardownComponent() {
     this.root.style.overflow = "auto";
     this.wrapper.remove();
+
+    return;
   }
 }
-
-export { Recipe };

@@ -16,15 +16,3 @@ section h6 {
 section h4 {
   color: var(--theme-lt-text);
 }
-
-/* Toggle recipe button/title */
-.title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-}
-.open-catagory-wrapper {
-  display: grid;
-  gap: 20px;
-}

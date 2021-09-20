@@ -18,7 +18,7 @@
 
   z-index: 50;
 
-  position: absolute;
+  position: fixed;
   right: 0;
 
   color: var(--theme-dk-text);
@@ -43,7 +43,7 @@
 .header nav #links {
   font-size: 48px;
   display: grid;
-  gap: 5px;
+  gap: 15px;
 }
 .header nav #login,
 .header nav #support {

@@ -1,4 +1,4 @@
-import { Recipe } from "./Recipe.js";
+import { Recipe } from "../components/Recipe.js";
 import { IMaster } from "../New_Recipe/interfaces.js";
 
 export class Catagories {
