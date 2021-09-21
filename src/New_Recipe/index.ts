@@ -14,7 +14,11 @@ const note = new Note("note");
 document
   .querySelector("footer .save-wrapper")
   ?.addEventListener("click", () => showSaveScreen());
+
 function showSaveScreen() {
+  //Check that data exists. Cancels save and alerts user;
+  if (preventEmptyDataSubmit() === false) return;
+
   //Commit master data to back end
   saveAllData();
 
@@ -31,6 +35,28 @@ function showSaveScreen() {
     2300
   );
 }
+
+function preventEmptyDataSubmit() {
+  //@ts-ignore
+  const recipeName = document.getElementById("recipe_name").value;
+
+  if (recipeName === "") {
+    alert("Recipe Name Empty");
+    return false;
+  } else if (catagory.getAllData().length === 0) {
+    alert("Catagory Empty");
+    return false;
+  } else if (ingredient.getAllData().length === 0) {
+    alert("Ingredient Empty");
+    return false;
+  } else if (method.getAllData().length === 0) {
+    alert("Method Empty");
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function saveAllData() {
   //@ts-ignore
   const recipeName = document.getElementById("recipe_name").value;
