@@ -25,7 +25,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/jonkarrer/Recipe_App" >
-    <img src="assets/flame.svg" alt="Logo" width="120" height="120">
+    <img src="assets/flame.svg" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Improv Recipes</h3>
@@ -36,7 +36,7 @@
     <a href="https://github.com/jonkarrer/Recipe_App"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/jonkarrer/Recipe_App">View Demo</a>
+    <a href="https://jonkarrer.github.io/Recipe_App/">View Demo</a>
     ·
     <a href="https://github.com/jonkarrer/Recipe_App/issues">Report Bug</a>
     ·
