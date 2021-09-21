@@ -13,12 +13,16 @@ export class Header {
   }
 
   openHeader() {
-    let header: any = this.header?.style;
+    let header = this.header?.style;
 
-    header.width = "100vw";
-    header.height = "100vh";
-    header.borderRadius = "0px";
-    header.margin = "0";
+    if (header != undefined) {
+      header.width = "100vw";
+      header.height = "100vh";
+      header.borderRadius = "0px";
+      header.margin = "0";
+    } else {
+      console.log("Header not defined");
+    }
 
     this.showNavigation();
   }
@@ -26,12 +30,16 @@ export class Header {
   closeHeader(e: Event) {
     e.stopPropagation();
 
-    let header: any = this.header?.style;
+    let header = this.header?.style;
 
-    header.width = "var(--width)";
-    header.height = "var(--height)";
-    header.borderRadius = "50%";
-    header.margin = "20px 30px";
+    if (header != undefined) {
+      header.width = "var(--width)";
+      header.height = "var(--height)";
+      header.borderRadius = "50%";
+      header.margin = "20px 30px";
+    } else {
+      console.log("Header not defined");
+    }
 
     this.hideNavigation();
   }
