@@ -4,6 +4,22 @@
   right: 30px;
 }
 
+.edit-delete-container {
+  display: grid;
+  grid-auto-flow: column;
+
+  width: max-content;
+
+  font-size: 1.5rem;
+}
+.edit-button {
+  border-right: var(--theme-blue) solid 3px;
+  padding-right: 30px;
+}
+.delete-button {
+  padding-left: 30px;
+}
+
 /* Single Recipe wrapper */
 .recipe-name-wrapper {
   background: var(--theme-grey);

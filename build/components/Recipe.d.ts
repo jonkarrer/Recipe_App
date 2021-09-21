@@ -4,8 +4,12 @@ export declare class Recipe {
     root: HTMLElement;
     wrapper: HTMLElement;
     constructor(recipe: IMaster);
-    openRecipe(): void;
-    createWrapper(): void;
+    buildTemplate(): void;
+    createCloseButton(): void;
+    createHeading(): void;
+    createModifyButtons(): void;
+    editRecipe(): void;
+    deleteRecipe(): void;
     createIngredients(): void;
     createMethods(): void;
     createNotes(): void;

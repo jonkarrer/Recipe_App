@@ -1,4 +1,4 @@
-import { IMaster } from "../New_Recipe/interfaces.js";
+import { IMaster } from "./New_Recipe/interfaces.js";
 
 const recipeOne: IMaster = {
   id: 1,

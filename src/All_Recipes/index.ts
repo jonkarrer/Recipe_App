@@ -25,7 +25,7 @@ class AllRecipes {
   openRecipe(recipe: IMaster) {
     const selectedRecipe = new Recipe(recipe);
 
-    selectedRecipe.openRecipe();
+    selectedRecipe.buildTemplate();
 
     return;
   }

@@ -8,40 +8,76 @@ export class Recipe {
     this.wrapper = document.createElement("div");
     this.wrapper.className = "open-recipe-wrapper";
   }
-
-  openRecipe() {
+  buildTemplate() {
     // Prevent body from scrolling behind recipe component
     this.root.style.overflow = "hidden";
 
-    // Set up the close button
+    this.createCloseButton();
+    this.createModifyButtons();
+    this.createHeading();
+    this.createIngredients();
+    this.createMethods();
+    this.createNotes();
+
+    this.root.appendChild(this.wrapper);
+    return;
+  }
+
+  createCloseButton() {
     const closeRecipeButton = document.createElement("h2");
     closeRecipeButton.className = "close-recipe-button";
     closeRecipeButton.innerText = "X";
     closeRecipeButton.addEventListener("click", () => this.teardownComponent());
 
     this.wrapper.append(closeRecipeButton);
-
-    this.createWrapper();
-
     return;
   }
 
-  createWrapper() {
-    const name = document.createElement("h4");
+  createHeading() {
+    const heading = document.createElement("h4");
     //@ts-ignore
-    name.innerText = this.recipe.name;
+    heading.innerText = this.recipe.name;
 
-    this.wrapper.append(name);
-
-    this.createIngredients();
-
-    this.createMethods();
-
-    this.createNotes();
-
-    this.root.appendChild(this.wrapper);
-
+    this.wrapper.append(heading);
     return;
+  }
+
+  createModifyButtons() {
+    const container = document.createElement("span");
+    container.className = "edit-delete-container";
+
+    const editButton = document.createElement("a");
+    editButton.className = "edit-button";
+    editButton.innerText = "Edit";
+    editButton.addEventListener("click", () => this.editRecipe());
+
+    const deleteButton = document.createElement("a");
+    deleteButton.className = "delete-button";
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener("click", () => this.deleteRecipe());
+
+    container.append(editButton, deleteButton);
+
+    this.wrapper.append(container);
+  }
+  editRecipe() {
+    localStorage.setItem("edit-recipe", JSON.stringify(this.recipe));
+  }
+
+  deleteRecipe() {
+    const key = localStorage.getItem("recipes");
+    let database;
+
+    if (key != null) database = JSON.parse(key);
+
+    const filtered = database.filter(
+      (item: { id: number | undefined }) => item.id != this.recipe.id
+    );
+
+    localStorage.clear();
+    localStorage.setItem("recipes", JSON.stringify(filtered));
+
+    this.teardownComponent();
   }
 
   createIngredients() {
@@ -49,17 +85,17 @@ export class Recipe {
     container.className = "ingredients-container";
 
     if (this.recipe.ingredients != undefined) {
-      for (const ing of this.recipe.ingredients) {
+      for (const ingredient of this.recipe.ingredients) {
         const wrapper = document.createElement("div");
         wrapper.className = "single-ingredient";
         const ingredientName = document.createElement("p");
-        ingredientName.innerText = ing.name;
+        ingredientName.innerText = ingredient.name;
 
         const ingredientAmount = document.createElement("p");
-        ingredientAmount.innerText = ing.amount;
+        ingredientAmount.innerText = ingredient.amount;
 
         const ingredientUnit = document.createElement("p");
-        ingredientUnit.innerText = ing.unit;
+        ingredientUnit.innerText = ingredient.unit;
 
         wrapper.append(ingredientName, ingredientAmount, ingredientUnit);
 
