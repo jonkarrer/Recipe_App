@@ -24,8 +24,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/jonkarrer/Recipe_App">
-    <img style="background: white" src="assets/flame.svg" alt="Logo" width="100" height="100">
+  <a href="https://github.com/jonkarrer/Recipe_App" style="background: white">
+    <img src="assets/flame.svg" alt="Logo" width="100" height="100" background="white">
   </a>
 
   <h3 align="center">Improv Recipes</h3>
