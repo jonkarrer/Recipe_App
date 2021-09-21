@@ -191,7 +191,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [contributors-url]: https://github.com/jonkarrer/Recipe_App/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/jonkarrer/Recipe_App.svg?style=for-the-badge
 [forks-url]: https://github.com/jonkarrer/Recipe_App/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/jonkarrer/Recipe_App.svg?style=for-the-badge
 [stars-url]: https://github.com/jonkarrer/Recipe_App/stargazers
 [issues-shield]: https://img.shields.io/github/issues/jonkarrer/Recipe_App.svg?style=for-the-badge
 [issues-url]: https://github.com/jonkarrer/Recipe_App/issues
