@@ -28,3 +28,8 @@ section h4 {
   display: grid;
   gap: 20px;
 }
+
+.recipes-container {
+  display: grid;
+  gap: 15px;
+}

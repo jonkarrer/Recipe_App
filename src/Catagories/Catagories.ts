@@ -19,18 +19,16 @@ export class Catagories {
       "Soup",
       "Lunch",
       "Dinner",
-      "Asian",
-      "Cajun",
       "Holiday",
       "Bread",
-      "Desserts",
+      "Dessert",
       "Special",
     ];
 
     // Loop through catagories array and append to body
     for (const catagoryName of catagories.sort()) {
       const parent = document.createElement("div");
-      parent.id = "parent";
+      parent.id = `${catagoryName}`;
       parent.className = "open-catagory-wrapper";
 
       const wrapper = document.createElement("span");
@@ -43,9 +41,21 @@ export class Catagories {
       toggle.innerText = "+";
 
       wrapper.append(title, toggle);
-      wrapper.addEventListener("click", () =>
-        this.openCatagory(parent, catagoryName)
-      );
+
+      wrapper.addEventListener("click", () => {
+        if (wrapper.id != "open") {
+          title.style.color = "var(--theme-dk-text)";
+          toggle.innerText = "-";
+          wrapper.id = "open";
+          this.openCatagory(parent, catagoryName);
+          return;
+        } else {
+          title.style.color = "var(--theme-lt-text)";
+          toggle.innerText = "+";
+          wrapper.id = "closed";
+          this.closeCatagory(parent);
+        }
+      });
 
       parent.append(wrapper);
 
@@ -58,6 +68,10 @@ export class Catagories {
   openCatagory(parentElement: HTMLElement | null, selectedCatagory: string) {
     const targetedRecipes = this.filterRecipes(selectedCatagory);
 
+    const container = document.createElement("div");
+    container.className = "recipes-container";
+    container.id = `${parentElement?.id}-root`;
+
     for (const recipe of targetedRecipes) {
       const wrapper = document.createElement("div");
       wrapper.className = "recipe-name-wrapper";
@@ -69,9 +83,19 @@ export class Catagories {
 
       wrapper.addEventListener("click", () => this.openRecipe(recipe));
 
-      parentElement?.append(wrapper);
+      container?.append(wrapper);
     }
+
+    parentElement?.append(container);
     return;
+  }
+
+  closeCatagory(parentElement: HTMLElement | null) {
+    const recipesContainer = document.getElementById(
+      `${parentElement?.id}-root`
+    );
+
+    recipesContainer?.remove();
   }
 
   filterRecipes(selectedCatagory: string) {

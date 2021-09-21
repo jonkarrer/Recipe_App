@@ -49,7 +49,9 @@ class Catagory extends Template {
       "Soup",
       "Lunch",
       "Dinner",
-      "Creole",
+      "Holiday",
+      "Bread",
+      "Dessert",
       "Special",
     ];
 

@@ -6,6 +6,7 @@ export declare class Catagories {
     buildTemplate(): void;
     createCatagories(): void;
     openCatagory(parentElement: HTMLElement | null, selectedCatagory: string): void;
+    closeCatagory(parentElement: HTMLElement | null): void;
     filterRecipes(selectedCatagory: string): any[];
     openRecipe(recipe: IMaster): void;
 }

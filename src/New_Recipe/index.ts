@@ -18,15 +18,18 @@ function showSaveScreen() {
   //Commit master data to back end
   saveAllData();
 
-  // //Show that recipe was saved
-  // const element: HTMLElement | null = document.querySelector(".save-screen");
-  // if (element != null) element.style.visibility = "visible";
+  //Show that recipe was saved
+  const element: HTMLElement | null = document.querySelector(".save-screen");
+  if (element != null) element.style.visibility = "visible";
 
-  // //Then redirect to home page
-  // setTimeout(
-  //   () => window.location.replace("http://127.0.0.1:5500/index.html"),
-  //   2300
-  // );
+  //Then redirect to home page
+  setTimeout(
+    () =>
+      window.location.replace(
+        "http://jonkarrer.github.io/Recipe_App/index.html"
+      ),
+    2300
+  );
 }
 function saveAllData() {
   //@ts-ignore
@@ -68,7 +71,10 @@ function showDeleteScreen() {
 
   //Then redirect to home page
   setTimeout(
-    () => window.location.replace("http://127.0.0.1:5500/index.html"),
+    () =>
+      window.location.replace(
+        "http://jonkarrer.github.io/Recipe_App/index.html"
+      ),
     2300
   );
 }
