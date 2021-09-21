@@ -1,5 +1,5 @@
 <!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** Thanks for checking out the Recipe_App. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
 *** Thanks again! Now go create something AMAZING! :D
@@ -24,23 +24,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/jonkarrer/Recipe_App">
+    <img src="assets/flame.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Improv Recipes</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An awesome Recipe App to keep track of your kitchen adventures.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/jonkarrer/Recipe_App"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/jonkarrer/Recipe_App">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/jonkarrer/Recipe_App/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/jonkarrer/Recipe_App/issues">Request Feature</a>
   </p>
 </p>
 
@@ -140,7 +140,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/jonkarrer/Recipe_App/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -196,7 +196,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [issues-shield]: https://img.shields.io/github/issues/jonkarrer/Recipe_App.svg?style=for-the-badge
 [issues-url]: https://github.com/jonkarrer/Recipe_App/issues
 [license-shield]: https://img.shields.io/github/license/jonkarrer/Recipe_App.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE
+[license-url]: https://github.com/jonkarrer/Recipe_App/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jon-karrer-6b8a18186/
 [product-screenshot]: assets/flame.svg
