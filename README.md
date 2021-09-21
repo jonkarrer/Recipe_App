@@ -2,7 +2,7 @@
 
 This is a minimalistic recipe app that I would like to use in my daily life.
 
-## Code Documentation
+## Code Snippets
 
 1. HEADER OPENING ANIMATION
 
@@ -20,20 +20,32 @@ This is a minimalistic recipe app that I would like to use in my daily life.
 
 ```typescript
 openHeader() {
-    let header: any = this.header?.style;
+    let header = this.header?.style;
 
-    header.width = "100vw";
-    header.height = "100vh";
+    if (header != undefined) {
+      header.width = "100vw";
+      header.height = "100vh";
+      header.borderRadius = "0px";
+      header.margin = "0";
+    } else {
+      console.log("Header not defined");
+    }
     //.......
   }
 
   closeHeader(e: Event) {
     e.stopPropagation();
 
-    let header: any = this.header?.style;
+    let header = this.header?.style;
 
-    header.width = "var(--width)";
-    header.height = "var(--height)";
+    if (header != undefined) {
+      header.width = "var(--width)";
+      header.height = "var(--height)";
+      header.borderRadius = "50%";
+      header.margin = "20px 30px";
+    } else {
+      console.log("Header not defined");
+    }
     //.......
   }
 ```
