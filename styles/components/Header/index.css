@@ -45,11 +45,10 @@
   display: grid;
   gap: 15px;
 }
-.header nav #login,
 .header nav #support {
   font-size: 28px;
   display: grid;
-  gap: 10px;
+  gap: 20px;
 }
 
 .header nav span {
