@@ -199,4 +199,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-url]: https://github.com/jonkarrer/Recipe_App/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jon-karrer-6b8a18186/
-[product-screenshot]: assets/flame.svg
+[product-screenshot]: assets/screenshot.png
