@@ -10,6 +10,34 @@ const ingredient = new Ingredient("ingredient");
 const method = new Method("method");
 const note = new Note("note");
 
+if (localStorage.getItem("edit-recipe") != null) {
+  //Get recipe to edit
+  //@ts-ignore
+  const recipeToEdit = JSON.parse(localStorage.getItem("edit-recipe"));
+
+  console.log(recipeToEdit);
+
+  //Populate name
+  const recipeName = document.getElementById("recipe_name");
+  //@ts-ignore
+  recipeName.value = recipeToEdit.name;
+
+  //Select Catagories
+  catagory.buildTemplate();
+  catagory.editBuild(recipeToEdit.catagories);
+
+  //Insert Ingredients
+  ingredient.editBuild(recipeToEdit.ingredients);
+
+  //Insert Methods
+  method.editBuild(recipeToEdit.methods);
+
+  //Insert Notes
+  note.editBuild(recipeToEdit.notes);
+} else {
+  console.log("storage is empty");
+}
+
 //Create footer's save button
 document
   .querySelector("footer .save-wrapper")
@@ -80,9 +108,6 @@ function saveAllData() {
 
   recipeHistory.push(masterData);
   localStorage.clear();
-
-  console.log(recipeHistory);
-
   localStorage.setItem("recipes", JSON.stringify(recipeHistory));
 }
 
@@ -90,7 +115,9 @@ function saveAllData() {
 document
   .querySelector("footer .delete-wrapper")
   ?.addEventListener("click", () => showDeleteScreen());
+
 function showDeleteScreen() {
+  localStorage.removeItem("edit-recipe");
   //Show that recipe was saved
   const element: HTMLElement | null = document.querySelector(".delete-screen");
   if (element != null) element.style.visibility = "visible";

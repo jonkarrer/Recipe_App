@@ -149,6 +149,14 @@ class Note extends Template {
     this.isNotOpen = true;
     return;
   }
+
+  editBuild(notes: Array<INote>) {
+    for (const note of notes) {
+      this.createFinishedComponent(note.note, note.id);
+
+      this.userDataCollector.push(note);
+    }
+  }
 }
 
 export default Note;

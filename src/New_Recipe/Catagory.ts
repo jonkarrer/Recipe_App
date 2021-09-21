@@ -117,6 +117,18 @@ class Catagory extends Template {
     this.isNotOpen = true;
     return;
   }
+
+  editBuild(catagories: Array<ICatagory>) {
+    const parent = document.querySelector<HTMLElement>(".overflow-wrapper");
+
+    for (const cat of catagories) {
+      const bubble: any = parent?.children[cat.id];
+      bubble.style.background = "var(--theme-blue)";
+      bubble.style.color = "var(--theme-lt-text)";
+
+      this.userDataCollector.push(cat);
+    }
+  }
 }
 
 export default Catagory;

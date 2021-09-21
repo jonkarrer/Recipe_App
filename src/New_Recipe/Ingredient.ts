@@ -191,7 +191,7 @@ class Ingredient extends Template {
     this.teardownTemplate();
 
     //Add new component
-    this.createFinishedComponent(name, amount, unit, identifier);
+    this.createFinishedComponent(identifier, name, amount, unit);
 
     return;
     /*
@@ -209,10 +209,10 @@ class Ingredient extends Template {
   }
 
   createFinishedComponent(
+    identifier: number,
     name: string,
     amount: string,
-    unit: string,
-    identifier: number
+    unit: string
   ) {
     const wrapper = document.createElement("div");
     wrapper.className = "finished-ingredient-wrapper";
@@ -280,6 +280,15 @@ class Ingredient extends Template {
   teardownTemplate() {
     this.root?.remove();
     this.isNotOpen = true;
+    return;
+  }
+
+  editBuild(ingredients: Array<IIngredient>) {
+    for (const ing of ingredients) {
+      this.createFinishedComponent(ing.id, ing.name, ing.amount, ing.unit);
+
+      this.userDataCollector.push(ing);
+    }
     return;
   }
 }

@@ -11,8 +11,9 @@ declare class Ingredient extends Template {
     createAmountInput(): void;
     createSaveButton(): void;
     saveFormData(evt: Event): void;
-    createFinishedComponent(name: string, amount: string, unit: string, identifier: number): void;
+    createFinishedComponent(identifier: number, name: string, amount: string, unit: string): void;
     editIngredient(name: string, amount: string, unit: string, wrapper: HTMLElement | null, identifier: number): void;
     teardownTemplate(): void;
+    editBuild(ingredients: Array<IIngredient>): void;
 }
 export default Ingredient;

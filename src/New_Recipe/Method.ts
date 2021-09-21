@@ -150,6 +150,14 @@ class Method extends Template {
     this.isNotOpen = true;
     return;
   }
+
+  editBuild(methods: Array<IMethod>) {
+    for (const method of methods) {
+      this.createFinishedComponent(method.method, method.id);
+
+      this.userDataCollector.push(method);
+    }
+  }
 }
 
 export default Method;

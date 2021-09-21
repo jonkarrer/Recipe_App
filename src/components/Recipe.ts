@@ -62,6 +62,12 @@ export class Recipe {
   }
   editRecipe() {
     localStorage.setItem("edit-recipe", JSON.stringify(this.recipe));
+
+    this.deleteRecipe();
+
+    window.location.replace(
+      "http://jonkarrer.github.io/Recipe_App/new_recipe.html"
+    );
   }
 
   deleteRecipe() {
@@ -73,8 +79,6 @@ export class Recipe {
     const filtered = database.filter(
       (item: { id: number | undefined }) => item.id != this.recipe.id
     );
-
-    localStorage.clear();
     localStorage.setItem("recipes", JSON.stringify(filtered));
 
     this.teardownComponent();
