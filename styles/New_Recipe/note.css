@@ -22,8 +22,12 @@
 .finished-note-wrapper {
   overflow: hidden;
   margin: auto;
-  width: 90%;
+  width: 80%;
   margin: 30px auto;
+
+  border-radius: 0.5rem;
+
+  border: var(--theme-blue) solid thin;
 }
 .finished-note-wrapper p {
   padding: 20px;

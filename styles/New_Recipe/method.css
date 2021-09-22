@@ -20,8 +20,12 @@
 .finished-method-wrapper {
   overflow: hidden;
   margin: auto;
-  width: 90%;
+  width: 80%;
   margin: 30px auto;
+
+  border-radius: 0.5rem;
+
+  border: var(--theme-blue) solid thin;
 }
 
 .finished-method-wrapper p {
@@ -31,7 +35,7 @@
 
   background: rgba(0, 0, 0, 0.1);
 
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 
   text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;

@@ -19,14 +19,15 @@ class Ingredient extends Template {
   }
 
   createWrapper() {
-    const section = this.sectionElement;
+    const parent = this.sectionElement;
 
     const wrapper = document.createElement("form");
-    wrapper.className = "new-ingredient-wrapper";
+    const name = "new-ingredient-wrapper";
+    wrapper.className = name;
 
-    section?.prepend(wrapper);
+    parent?.append(wrapper);
 
-    this.root = document.querySelector(".new-ingredient-wrapper");
+    this.root = document.querySelector(`.${name}`);
 
     return;
     /*
@@ -107,7 +108,7 @@ class Ingredient extends Template {
 
     this.root?.appendChild(wrapper);
 
-    function appendOptionsToSelect() {
+    (function appendOptionsToSelect() {
       const optionValues = [
         "Tbsp",
         "Oz",
@@ -128,8 +129,7 @@ class Ingredient extends Template {
 
         unit.append(element);
       }
-    }
-    appendOptionsToSelect();
+    })();
 
     return;
     /*
@@ -178,14 +178,17 @@ class Ingredient extends Template {
     evt.preventDefault();
 
     //Capture user input
-    //@ts-ignore
-    const name = document.getElementById("ingredient-name")?.value;
-    if (name === "") return; //Prevents empty fields
-    //@ts-ignore
-    const amount = document.getElementById("amount")?.value;
+    const name = (
+      document.getElementById("ingredient-name") as HTMLInputElement
+    )?.value;
+    if (name === "") return; //Prevents save with empty fields
+
+    const amount = (document.getElementById("amount") as HTMLInputElement)
+      ?.value;
     if (amount === "") return;
-    //@ts-ignore
-    const unit = document.getElementById("amount-unit")?.value;
+
+    const unit = (document.getElementById("amount-unit") as HTMLInputElement)
+      ?.value;
 
     const identifier = Date.now();
 
@@ -251,7 +254,7 @@ class Ingredient extends Template {
       this.editIngredient(name, amount, unit, wrapper, identifier)
     );
 
-    this.sectionElement?.prepend(wrapper);
+    this.sectionElement?.append(wrapper);
   }
 
   editIngredient(
@@ -273,16 +276,14 @@ class Ingredient extends Template {
     this.buildTemplate();
 
     //Grab input fields and set new values to the ingredients values
+    let nameInput = document.getElementById(
+      "ingredient-name"
+    ) as HTMLInputElement;
+    let amountInput = document.getElementById("amount") as HTMLInputElement;
+    let unitInput = document.getElementById("amount-unit") as HTMLInputElement;
 
-    let nameInput = document.getElementById("ingredient-name");
-    let amountInput = document.getElementById("amount");
-    let unitInput = document.getElementById("amount-unit");
-
-    //@ts-ignore
-    amountInput.value = amount;
-    //@ts-ignore
     nameInput.value = name;
-    //@ts-ignore
+    amountInput.value = amount;
     unitInput.value = unit;
 
     return;
@@ -290,7 +291,9 @@ class Ingredient extends Template {
 
   teardownTemplate() {
     this.root?.remove();
+
     this.isNotOpen = true;
+
     return;
   }
 

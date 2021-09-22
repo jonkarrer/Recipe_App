@@ -37,6 +37,8 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  border-radius: 0.5rem;
 }
 
 /* Recipe Pop up component */

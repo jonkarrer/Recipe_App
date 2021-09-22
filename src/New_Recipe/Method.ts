@@ -91,9 +91,10 @@ class Method extends Template {
     evt.preventDefault();
 
     //Capture user input
-    //@ts-ignore
-    let textareaInput = document.getElementById("method-input")?.value;
-    if (textareaInput === "") return; //Prevents empty fields
+    let textareaInput = (
+      document.getElementById("method-input") as HTMLTextAreaElement
+    )?.value;
+    if (textareaInput === "") return; //Prevents save with empty fields
 
     //Send input info to back end
     const infoPacket: IMethod = { id: Date.now(), method: textareaInput };
@@ -138,8 +139,10 @@ class Method extends Template {
     this.buildTemplate();
 
     //re-populate textarea with previous input
-    let textarea = document.getElementById("method-input");
-    //@ts-ignore
+    let textarea = document.getElementById(
+      "method-input"
+    ) as HTMLTextAreaElement;
+
     textarea.value = textareaInput;
 
     return;
@@ -147,7 +150,9 @@ class Method extends Template {
 
   teardownTemplate() {
     this.root?.remove();
+
     this.isNotOpen = true;
+
     return;
   }
 
