@@ -4,6 +4,7 @@
 @import url("./note.css");
 @import url("./footer.css");
 @import url("./comps/save_button.css");
+@import url("./comps/trash.css");
 
 :root {
   --border-color: var(--theme-grey);

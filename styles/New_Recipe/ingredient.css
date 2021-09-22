@@ -1,28 +1,26 @@
 .new-ingredient-wrapper {
-  margin: 20px 0;
-  padding: 25px;
+  padding: 40px 25px;
+
+  margin-bottom: 30px;
 
   display: grid;
   place-items: center;
-  gap: 40px;
+  gap: 60px;
 
   background: var(--theme-lt-grey);
 }
 
-/* Ingredient name*/
+/* Ingredient name */
 .new-ingredient-wrapper input {
   width: 90%;
   margin: auto;
   font-size: 1.8rem;
-  padding: 3px;
-}
-.new-ingredient-wrapper img {
-  width: 40px;
+  padding: 8px;
 }
 
 /*** Ingredient Amount */
 .amount-wrapper {
-  width: 70%;
+  width: 90%;
 
   display: flex;
   align-items: center;
@@ -42,11 +40,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* Ingredient Unit */
 .amount-wrapper select {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 
   margin: 0;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 5px 2px;
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 

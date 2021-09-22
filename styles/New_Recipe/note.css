@@ -1,6 +1,6 @@
 .new-note-wrapper {
   margin-bottom: 30px;
-  padding: 25px;
+  padding: 40px 25px;
 
   display: grid;
   place-items: center;
@@ -10,10 +10,6 @@
   margin-top: 30px;
 
   background: var(--theme-lt-grey);
-}
-
-.new-note-wrapper img {
-  width: 40px;
 }
 
 .new-note-wrapper textarea {

@@ -1,6 +1,6 @@
 .new-method-wrapper {
   margin-bottom: 30px;
-  padding: 25px;
+  padding: 40px 25px;
 
   display: grid;
   place-items: center;
@@ -10,9 +10,6 @@
   background: var(--theme-grey);
 
   background: var(--theme-lt-grey);
-}
-.new-method-wrapper img {
-  width: 40px;
 }
 
 .new-method-wrapper textarea {
