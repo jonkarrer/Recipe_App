@@ -8,8 +8,6 @@
   gap: 40px;
 
   background: var(--theme-grey);
-
-  background: var(--theme-lt-grey);
 }
 
 .new-method-wrapper textarea {

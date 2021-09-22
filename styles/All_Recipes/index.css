@@ -1,10 +1,10 @@
-@import url("../components/single_recipe.css");
+@import url("../components/Recipe/index.css");
 
 section {
-  padding: 120px 0;
+  padding: 140px 0;
   margin: 0 30px;
   display: grid;
-  gap: 30px;
+  gap: 35px;
 }
 section h1 {
   font-size: 3.2rem;
