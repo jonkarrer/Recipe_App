@@ -2,6 +2,9 @@ footer {
   position: fixed;
 
   bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   height: 100px;
   width: 100vw;
   border-top: var(--theme-dk-text) solid thin;
@@ -36,6 +39,8 @@ footer .delete-screen {
   visibility: hidden;
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
 
   height: 100vh;
   width: 100vw;

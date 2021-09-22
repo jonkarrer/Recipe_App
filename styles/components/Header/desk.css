@@ -1,0 +1,32 @@
+.desk-header {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desk-header {
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+
+    padding: 30px 50px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--theme-dk-text);
+
+    background: white;
+  }
+  .desk-header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .desk-header nav #links {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 40px;
+  }
+}

@@ -27,6 +27,9 @@ main {
   gap: 30px;
   padding-top: 40px;
   padding-bottom: 150px;
+
+  max-width: 900px;
+  margin: auto;
 }
 input {
   width: 100%;

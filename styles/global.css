@@ -1,4 +1,5 @@
-@import url("./components/Header/index.css");
+@import url("./components/Header/mobile.css");
+@import url("./components/Header/desk.css");
 @import url("./components/Fonts.css");
 
 * {

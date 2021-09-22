@@ -16,3 +16,9 @@ section h6 {
 section h4 {
   color: var(--theme-lt-text);
 }
+
+@media (min-width: 1024px) {
+  section h1 {
+    text-align: center;
+  }
+}

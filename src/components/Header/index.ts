@@ -3,10 +3,10 @@ export class Header {
   private closeHeaderButton: HTMLElement | null;
 
   constructor() {
-    this.header = document.querySelector(".header");
+    this.header = document.getElementById("mobile-header");
     this.header?.addEventListener("click", () => this.openHeader());
 
-    this.closeHeaderButton = document.querySelector(".header nav span");
+    this.closeHeaderButton = document.querySelector(".mobile-header nav span");
     this.closeHeaderButton?.addEventListener("click", (e) =>
       this.closeHeader(e)
     );
@@ -45,12 +45,16 @@ export class Header {
   }
 
   showNavigation() {
-    const navigation = <HTMLElement>document.querySelector(".header nav");
+    const navigation = <HTMLElement>(
+      document.querySelector(".mobile-header nav")
+    );
     setTimeout(() => (navigation.style.visibility = "visible"), 200);
   }
 
   hideNavigation() {
-    const navigation = <HTMLElement>document.querySelector(".header nav");
+    const navigation = <HTMLElement>(
+      document.querySelector(".mobile-header nav")
+    );
     navigation.style.visibility = "hidden";
   }
 }

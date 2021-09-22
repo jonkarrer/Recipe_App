@@ -1,4 +1,4 @@
-.header {
+.mobile-header {
   /* 01. Used to reset styles after transition is closed via Header/index.js */
   --width: 55px;
   --height: 55px;
@@ -26,8 +26,8 @@
   box-shadow: 1px 1px 5px #333;
 }
 
-/* Navigation links in header.*/
-.header nav {
+/* Navigation links in header. */
+.mobile-header nav {
   visibility: hidden;
 
   height: 100%;
@@ -40,18 +40,18 @@
 
   padding: 20px 30px;
 }
-.header nav #links {
+.mobile-header nav #links {
   font-size: 48px;
   display: grid;
   gap: 20px;
 }
-.header nav #support {
+.mobile-header nav #support {
   font-size: 20px;
   display: grid;
-  gap: 30px;
+  gap: 25px;
 }
 
-.header nav span {
+.mobile-header nav span {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -59,6 +59,12 @@
   color: var(--theme-lt-text);
   z-index: 60;
 }
-.header nav span:hover {
+.mobile-header nav span:hover {
   cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .mobile-header {
+    display: none;
+  }
 }
