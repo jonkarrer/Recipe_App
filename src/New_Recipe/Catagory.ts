@@ -82,39 +82,46 @@ class Catagory extends Template {
   captureUserSelection(
     bubble: HTMLElement,
     evt: Event,
-    cat: string,
+    catagory: string,
     catagories: Array<string>
   ) {
+    //Has bubble been clicked? Will be blue if true.
     if (bubble.style.background != "var(--theme-blue)") {
-      //Change color to reflect has been clicked;
+      // Pass info
+      const target = evt.target as HTMLElement;
+      const infoPacket: ICatagory = {
+        id: catagories.indexOf(catagory),
+        catagory: target.getAttribute("data-catagory-name"),
+      };
+      this.userDataCollector.push(infoPacket);
+
+      //Change color to reflect bubble has been clicked on;
       bubble.style.background = "var(--theme-blue)";
       bubble.style.color = "var(--theme-lt-text)";
 
-      const infoPacket: ICatagory = {
-        id: catagories.indexOf(cat),
-        //@ts-ignore
-        catagory: evt.target?.getAttribute("data-catagory-name"),
-      };
-
-      this.userDataCollector.push(infoPacket);
+      return;
     } else {
-      //Change color to reflect has been clicked again;
+      //Remove the catagory that was clicked;
+      this.userDataCollector = this.userDataCollector.filter(
+        (item: ICatagory) => item.id != catagories.indexOf(catagory)
+      );
+      //Change color to reflect has been clicked off;
       bubble.style.background = "var(--theme-grey)";
       bubble.style.color = "var(--theme-dk-text)";
 
-      //Remove the catagory that was clicked;
-      this.userDataCollector = this.userDataCollector.filter(
-        (item: ICatagory) => item.id != catagories.indexOf(cat)
-      );
+      return;
     }
   }
 
   teardownTemplate() {
     let teardownTarget = document.querySelector(".bubbles-container");
     teardownTarget?.remove();
+
     if (this.toggleSwitch != null) this.toggleSwitch.innerText = "+";
     if (this.title != null) this.title.style.color = "var(--theme-lt-text)";
+
     this.isNotOpen = true;
+
     return;
   }
 

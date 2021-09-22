@@ -4,7 +4,7 @@ declare class Catagory extends Template {
     buildTemplate(): void;
     createContainer(): void;
     createBubbles(): void;
-    captureUserSelection(bubble: HTMLElement, evt: Event, cat: string, catagories: Array<string>): void;
+    captureUserSelection(bubble: HTMLElement, evt: Event, catagory: string, catagories: Array<string>): void;
     teardownTemplate(): void;
     editBuild(catagories: Array<ICatagory>): void;
 }
