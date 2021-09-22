@@ -36,7 +36,7 @@ class Note extends Template {
     title.style.color = "var(--theme-dk-text)";
 
     const toggle = document.createElement("img");
-    toggle.src = "./assets/bolt.svg";
+    toggle.src = "./assets/trash.svg";
     toggle.alt = "delete button";
     toggle.id = "delete-note";
     toggle.addEventListener("click", () => this.teardownTemplate());

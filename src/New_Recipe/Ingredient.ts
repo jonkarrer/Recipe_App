@@ -46,7 +46,7 @@ class Ingredient extends Template {
     title.style.color = "var(--theme-dk-text)";
 
     const toggle = document.createElement("img");
-    toggle.src = "./assets/bolt.svg";
+    toggle.src = "./assets/trash.svg";
     toggle.id = "delete-ingredient";
     toggle.addEventListener("click", () => this.teardownTemplate());
 
@@ -108,7 +108,18 @@ class Ingredient extends Template {
     this.root?.appendChild(wrapper);
 
     function appendOptionsToSelect() {
-      const optionValues = ["Tbsp", "Oz", "Cup", "Lb", "Gram", "Tsp"];
+      const optionValues = [
+        "Tbsp",
+        "Oz",
+        "Cup",
+        "Lb",
+        "Gram",
+        "Tsp",
+        "Whole",
+        "Slice",
+        "Part",
+        "Piece",
+      ];
 
       for (const option of optionValues) {
         const element = document.createElement("option");

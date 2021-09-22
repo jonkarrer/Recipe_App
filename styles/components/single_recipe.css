@@ -30,6 +30,13 @@
   text-align: center;
 
   padding: 15px 0;
+
+  width: 90%;
+
+  margin: auto;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Recipe Pop up component */

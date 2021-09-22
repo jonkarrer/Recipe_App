@@ -4,8 +4,8 @@
   background: linear-gradient(
     to right,
     rgb(144, 137, 137) 20%,
-    var(--theme-dk-text) 40%,
-    var(--theme-dk-text) 60%,
+    white 40%,
+    white 60%,
     rgb(144, 137, 137) 80%
   );
   background-size: 200% auto;

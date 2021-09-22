@@ -22,6 +22,8 @@ button {
   width: 200px;
   height: 60px;
 
+  background: var(--theme-dk-text);
+
   border: none;
   border-radius: 2rem;
 
