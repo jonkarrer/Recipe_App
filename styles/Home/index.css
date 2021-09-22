@@ -1,4 +1,4 @@
-.container {
+.wrapper {
   display: grid;
   place-content: center;
   gap: 60px;
