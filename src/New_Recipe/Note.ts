@@ -83,8 +83,10 @@ class Note extends Template {
     evt.preventDefault();
 
     //Capture user input
-    //@ts-ignore
-    let textareaInput = document.getElementById("note-input")?.value;
+
+    let textareaInput = (
+      document.getElementById("note-input") as HTMLTextAreaElement
+    )?.value;
     if (textareaInput === "") return; //Prevents empty fields
 
     //Send input info to back end
@@ -133,9 +135,8 @@ class Note extends Template {
     //Create new method template
     this.buildTemplate();
 
-    let textarea = document.getElementById("note-input");
+    let textarea = document.getElementById("note-input") as HTMLTextAreaElement;
 
-    //@ts-ignore
     textarea.value = textareaInput;
 
     return;

@@ -35,8 +35,7 @@ export class Recipe {
 
   createHeading() {
     const heading = document.createElement("h4");
-    //@ts-ignore
-    heading.innerText = this.recipe.name;
+    heading.innerText = this.recipe.name as string;
 
     this.wrapper.append(heading);
     return;
@@ -60,28 +59,40 @@ export class Recipe {
 
     this.wrapper.append(container);
   }
+
   editRecipe() {
+    //Put the recipe in a cart for ./new_recipe.html to use.
     localStorage.setItem("edit-recipe", JSON.stringify(this.recipe));
 
+    //Remove recipe from database and dom;
     this.deleteRecipe();
 
+    //Go to ./new_recipe.html page to make edits
     window.location.replace(
       "http://jonkarrer.github.io/Recipe_App/new_recipe.html"
     );
   }
 
   deleteRecipe() {
+    //Grab the database
     const key = localStorage.getItem("recipes");
     let database;
 
+    //Parse out the database
     if (key != null) database = JSON.parse(key);
 
+    //Remove the deleted recipe by id
     const filtered = database.filter(
       (item: { id: number | undefined }) => item.id != this.recipe.id
     );
+
+    //Reset with overwrite of the filtered list.
     localStorage.setItem("recipes", JSON.stringify(filtered));
 
     this.teardownComponent();
+
+    //Update DOM
+    window.location.reload();
   }
 
   createIngredients() {
@@ -158,6 +169,7 @@ export class Recipe {
 
     return;
   }
+
   teardownComponent() {
     this.root.style.overflow = "auto";
     this.wrapper.remove();

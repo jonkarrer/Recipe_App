@@ -1,5 +1,6 @@
 import { Recipe } from "../components/Recipe.js";
 import { IMaster } from "../New_Recipe/interfaces.js";
+
 class AllRecipes {
   root: HTMLElement | null;
   constructor(private database: Array<any>) {
@@ -32,8 +33,7 @@ class AllRecipes {
 }
 
 window.onload = async () => {
-  //@ts-ignore
-  let db = JSON.parse(localStorage.getItem("recipes"));
+  let db = JSON.parse(localStorage.getItem("recipes") as string);
 
   new AllRecipes(db);
 };

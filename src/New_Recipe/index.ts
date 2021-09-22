@@ -10,16 +10,15 @@ const ingredient = new Ingredient("ingredient");
 const method = new Method("method");
 const note = new Note("note");
 
+// Check if user is going for an edit on page load
 if (localStorage.getItem("edit-recipe") != null) {
   //Get recipe to edit
-  //@ts-ignore
-  const recipeToEdit = JSON.parse(localStorage.getItem("edit-recipe"));
-
-  console.log(recipeToEdit);
+  const recipeToEdit = JSON.parse(
+    localStorage.getItem("edit-recipe") as string
+  );
 
   //Populate name
-  const recipeName = document.getElementById("recipe_name");
-  //@ts-ignore
+  const recipeName = document.getElementById("recipe_name") as HTMLInputElement;
   recipeName.value = recipeToEdit.name;
 
   //Select Catagories
@@ -38,7 +37,7 @@ if (localStorage.getItem("edit-recipe") != null) {
   console.log("storage is empty");
 }
 
-//Create footer's save button
+//Create save button
 document
   .querySelector("footer .save-wrapper")
   ?.addEventListener("click", () => showSaveScreen());
@@ -63,10 +62,10 @@ function showSaveScreen() {
     2300
   );
 }
-
 function preventEmptyDataSubmit() {
-  //@ts-ignore
-  const recipeName = document.getElementById("recipe_name").value;
+  const recipeName = (
+    document.getElementById("recipe_name") as HTMLInputElement
+  ).value;
 
   if (recipeName === "") {
     alert("Recipe Name Empty");
@@ -84,10 +83,10 @@ function preventEmptyDataSubmit() {
     return true;
   }
 }
-
 function saveAllData() {
-  //@ts-ignore
-  const recipeName = document.getElementById("recipe_name").value;
+  const recipeName = (
+    document.getElementById("recipe_name") as HTMLInputElement
+  ).value;
 
   let masterData: IMaster = {};
 
@@ -103,22 +102,22 @@ function saveAllData() {
     return;
   }
 
-  //@ts-ignore
-  const recipeHistory = JSON.parse(localStorage.getItem("recipes"));
+  const recipeHistory = JSON.parse(localStorage.getItem("recipes") as string);
 
   recipeHistory.push(masterData);
+  //Empy edit-recipe key and old data
   localStorage.clear();
   localStorage.setItem("recipes", JSON.stringify(recipeHistory));
 }
 
-//Create footer's delete button
+//Create delete button
 document
   .querySelector("footer .delete-wrapper")
   ?.addEventListener("click", () => showDeleteScreen());
 
 function showDeleteScreen() {
   localStorage.removeItem("edit-recipe");
-  //Show that recipe was saved
+  //Show that recipe was deleted
   const element: HTMLElement | null = document.querySelector(".delete-screen");
   if (element != null) element.style.visibility = "visible";
 

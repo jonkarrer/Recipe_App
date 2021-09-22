@@ -9,6 +9,7 @@ export class Catagories {
   }
   buildTemplate() {
     this.createCatagories();
+    return;
   }
 
   createCatagories() {
