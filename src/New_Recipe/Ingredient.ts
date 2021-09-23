@@ -110,16 +110,23 @@ class Ingredient extends Template {
 
     (function appendOptionsToSelect() {
       const optionValues = [
-        "Tbsp",
-        "Oz",
         "Cup",
+        "Oz",
+        "fl",
         "Lb",
         "Gram",
+        "Tbsp",
         "Tsp",
+        "Pint",
+        "Quart",
+        "Gal",
+        "liter",
+        "ml",
         "Whole",
         "Slice",
         "Part",
         "Piece",
+        "Unit",
       ];
 
       for (const option of optionValues) {
